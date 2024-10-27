@@ -2626,6 +2626,11 @@ setFlags											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
+											<a href="../../character meta/framework/#setup">
+setup											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../character meta/framework/#sync">
 sync											</a>
 										</li>
@@ -4524,7 +4529,7 @@ Think											</a>
 <p>Characters are a fundamental object type in Lilia. They are distinct from players, where players are the representation of a
 person's existence in the server that owns a character, and their character is their currently selected persona. All the
 characters that a player owns will be loaded into memory once they connect to the server. Characters are saved during a regular
-interval (lia.config.CharacterDataSaveInterval), and during specific events (e.g when the owning player switches away from one character to another).</p>
+interval (lia.config.CharacterDataSaveInterval), and during specific events (e.g., when the owning player switches away from one character to another).</p>
 
 <p>They contain all information that is not persistent with the player; names, descriptions, model, currency, etc. For the most
 part, you'll want to keep all information stored on the character since it will probably be different or change if the
@@ -4539,7 +4544,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:__eq(other)</h1>
 				</a>
 
-					<p>Returns true if this character is equal to another character.  Internally, this checks character IDs.</p>
+					<p>Compares this character with another character for equality based on their unique IDs.</p>
 			</header>
 
 
@@ -4554,7 +4559,7 @@ for variables that automatically save to the character object.</p>
 									<span class="tag"><span class="type">Character</span></span>
 
 
-								<p> Character to compare to</p>
+								<p> The other character to compare against.</p>
 							</li>
 					</ul>
 
@@ -4563,16 +4568,20 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>bool Whether or not this character is equal to the given character</p>
+								<p><code>true</code> if both characters have the same ID; otherwise, <code>false</code>.</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>print(lia.char.loaded[1] == lia.char.loaded[2])
- > false
+					<pre><code>```lua
+local char1 = lia.char.loaded[1]
+local char2 = lia.char.loaded[2]
+print(char1 == char2)
+-- Output: false
+```
 </code></pre>
 
 		</section>
@@ -4582,7 +4591,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:__tostring()</h1>
 				</a>
 
-					<p>Returns a string representation of this character</p>
+					<p>Provides a human-readable string representation of the character.</p>
 			</header>
 
 
@@ -4591,16 +4600,18 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">String</span>
 
-								<p>string String representation</p>
+								<p>A string in the format "character[ID]", where ID is the character's unique identifier.</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>print(lia.char.loaded[1])
- > "character[1]"
+					<pre><code>```lua
+print(lia.char.loaded[1])
+-- Output: "character[1]"
+```
 </code></pre>
 
 		</section>
@@ -4610,7 +4621,8 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:ban(time)</h1>
 				</a>
 
-					<p>Forces a player off their current character, and prevents them from using the character for the specified amount of time.</p>
+					<p>Bans the character, preventing it from being used for a specified duration or permanently if no duration is provided.
+ This action also forces the player out of the character.</p>
 			</header>
 
 
@@ -4624,13 +4636,18 @@ for variables that automatically save to the character object.</p>
 
 									<span class="tag"><span class="type">Float</span></span>
 
-									<span class="tag default">optional</span>
 
-								<p> Amount of seconds to ban the character for. If left as <code>nil</code>, the character will be banned permanently</p>
+								<p> The duration of the ban in seconds. If omitted or <code>nil</code>, the ban is permanent.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:ban(3600) -- Bans the character for 1 hour
+character:ban() -- Permanently bans the character
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4639,11 +4656,16 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:delete()</h1>
 				</a>
 
-					<p>Deletes the character from the character database and removes it from memory.</p>
+					<p>Removes the character from the database and memory, effectively deleting it permanently.</p>
 			</header>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:delete()
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4652,11 +4674,17 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:destroy()</h1>
 				</a>
 
-					<p>Destroys the character, removing it from memory and notifying clients to remove it.</p>
+					<p>Destroys the character instance, removing it from memory and ensuring it is no longer tracked by the server.
+ This does not delete the character from the database.</p>
 			</header>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:destroy()
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4665,7 +4693,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:getFlags()</h1>
 				</a>
 
-					<p>Returns all of the flags this character has.</p>
+					<p>Retrieves all flags associated with this character.</p>
 			</header>
 
 
@@ -4674,14 +4702,22 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
-								<p>Flags this character has represented as one string. You can access individual flags by iterating through
- the string letter by letter</p>
+								<p>A concatenated string of all flags the character possesses. Each character in the string represents an individual flag.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+local flags = character:getFlags()
+for i = 1, #flags do
+    local flag = flags:sub(i, i)
+    print("Flag:", flag)
+end
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4690,7 +4726,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:getID()</h1>
 				</a>
 
-					<p>Returns this character's database ID.  This is guaranteed to be unique.</p>
+					<p>Retrieves the unique database ID of this character.</p>
 			</header>
 
 
@@ -4699,13 +4735,20 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Integer</span>
 
-								<p>number Unique ID of character</p>
+								<p>The unique identifier of the character.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+local charID = character:getID()
+print(charID)
+-- Output: 1
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4714,7 +4757,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:getItemWeapon()</h1>
 				</a>
 
-					<p>Retrieves the character's equipped weapon and its corresponding item from the inventory.</p>
+					<p>Retrieves the currently equipped weapon of the character along with its corresponding inventory item.</p>
 			</header>
 
 
@@ -4723,21 +4766,28 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Entity</span> or <span class="type">false</span>
 
-								<p>Entity|false The equipped weapon entity, or false if no weapon is equipped.</p>
+								<p>The equipped weapon entity if a weapon is equipped; otherwise, <code>false</code>.</p>
 							</li>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Item</span> or <span class="type">false</span>
 
-								<p>Item|false The corresponding item from the character's inventory, or false if no corresponding item is found.</p>
+								<p>The corresponding item from the character's inventory if found; otherwise, <code>false</code>.</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>local weapon, item = character:getItemWeapon()
+					<pre><code>```lua
+local weapon, item = character:getItemWeapon()
+if weapon then
+    print("Equipped weapon:", weapon:GetClass())
+else
+    print("No weapon equipped.")
+end
+```
 </code></pre>
 
 		</section>
@@ -4747,7 +4797,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:getPlayer()</h1>
 				</a>
 
-					<p>Returns the player that owns this character.</p>
+					<p>Obtains the player object that currently owns this character.</p>
 			</header>
 
 
@@ -4756,13 +4806,21 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">The</span>
 
-								<p>player Player that owns this character</p>
+								<p>player who owns this character, or <code>nil</code> if no valid player is found.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+local owner = character:getPlayer()
+if owner then
+    print("Character is owned by:", owner:Nick())
+end
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4771,7 +4829,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:giveFlags(flags)</h1>
 				</a>
 
-					<p>Adds a flag to the list of this character's accessible flags.  This does not overwrite existing flags.</p>
+					<p>Adds one or more flags to the character's existing set of accessible flags without removing existing ones.</p>
 			</header>
 
 
@@ -4786,20 +4844,18 @@ for variables that automatically save to the character object.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Flag(s) this character should be given</p>
+								<p> A string containing one or more flags to add.</p>
 							</li>
 					</ul>
 
 
 				<h3>Example Usage</h3>
-					<pre><code>character:GiveFlags("pet")
- gives p, e, and t flags to the character
+					<pre><code>```lua
+character:giveFlags("pet")
+-- Adds 'p', 'e', and 't' flags to the character
+```
 </code></pre>
 
-				<h3>See Also</h3>
-				<ul>
-						<li><a href="../../character meta/framework/#hasFlags">hasFlags</a></li>
-				</ul>
 		</section>
 		<section class="method">
 			<header>
@@ -4807,7 +4863,9 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:giveMoney(amount, takingMoney)</h1>
 				</a>
 
-					<p>Gives or takes money from the character's wallet.</p>
+					<p>Adds or subtracts money from the character's wallet.
+ This function handles both giving and taking money based on the <code>takingMoney</code> parameter.
+ When adding money, it respects the maximum money limit and handles overflow by dropping excess money on the ground.</p>
 			</header>
 
 
@@ -4819,10 +4877,10 @@ for variables that automatically save to the character object.</p>
 							<li>
 								<span class="tag parameter">amount</span>
 
-									<span class="tag"><span class="type">Integer</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
 
-								<p> The amount of money to give or take.</p>
+								<p> The amount of money to modify. Positive to add, negative to subtract.</p>
 							</li>
 					</ul>
 
@@ -4833,9 +4891,8 @@ for variables that automatically save to the character object.</p>
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">default: false</span>
 
-								<p> Whether the operation is to take money from the character.</p>
+								<p> Optional. If <code>true</code>, the operation is treated as taking money; otherwise, adding money.</p>
 							</li>
 					</ul>
 
@@ -4844,13 +4901,19 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>bool Whether the operation was successful.</p>
+								<p>Always returns <code>true</code> to indicate the operation was processed.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:giveMoney(500) -- Adds 500 to the character's wallet
+character:giveMoney(-200, true) -- Takes 200 from the character's wallet
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4859,7 +4922,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:hasFlags(flags)</h1>
 				</a>
 
-					<p>Returns <code>true</code> if the character has the given flag(s).</p>
+					<p>Determines if the character has one or more specified flags.</p>
 			</header>
 
 
@@ -4874,7 +4937,7 @@ for variables that automatically save to the character object.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Flag(s) to check access for</p>
+								<p> A string containing one or more flags to check.</p>
 							</li>
 					</ul>
 
@@ -4883,13 +4946,20 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
-								<p>Whether or not this character has access to the given flag(s)</p>
+								<p><code>true</code> if the character has at least one of the specified flags; otherwise, <code>false</code>.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+if character:hasFlags("admin") then
+    print("Character has admin privileges.")
+end
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4898,7 +4968,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm shared"></span></span>characterMeta:hasMoney(amount)</h1>
 				</a>
 
-					<p>Checks if the character has at least the specified amount of money.</p>
+					<p>Checks whether the character possesses at least a specified amount of in-game currency.</p>
 			</header>
 
 
@@ -4910,10 +4980,10 @@ for variables that automatically save to the character object.</p>
 							<li>
 								<span class="tag parameter">amount</span>
 
-									<span class="tag"><span class="type">Integer</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
 
-								<p> The amount of money to check for.</p>
+								<p> The minimum amount of currency to check for. Must be a non-negative number.</p>
 							</li>
 					</ul>
 
@@ -4922,15 +4992,22 @@ for variables that automatically save to the character object.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>bool Whether the character has at least the specified amount of money.</p>
+								<p><code>true</code> if the character's current money is equal to or exceeds the specified amount; otherwise, <code>false</code>.</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>local hasEnoughMoney = character:hasMoney(100)
+					<pre><code>```lua
+local hasEnoughMoney = character:hasMoney(100)
+if hasEnoughMoney then
+    print("Character has sufficient funds.")
+else
+    print("Character lacks sufficient funds.")
+end
+```
 </code></pre>
 
 		</section>
@@ -4940,11 +5017,17 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:kick()</h1>
 				</a>
 
-					<p>Forces a player off their current character, and sends them to the character menu to select a character.</p>
+					<p>Forces the player to exit their current character and redirects them to the character selection menu.
+ This is typically used when a character is banned or deleted.</p>
 			</header>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:kick()
+```
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4953,7 +5036,7 @@ for variables that automatically save to the character object.</p>
 					<h1><span class="realm server"></span></span>characterMeta:save(callback)</h1>
 				</a>
 
-					<p>Saves this character's info to the database.</p>
+					<p>Persists the character's current state and data to the database.</p>
 			</header>
 
 
@@ -4967,18 +5050,18 @@ for variables that automatically save to the character object.</p>
 
 									<span class="tag"><span class="type">Function</span></span>
 
-									<span class="tag default">default: nil</span>
 
-								<p> Function to call when the save has completed.</p>
+								<p> An optional callback function to execute after the save operation completes successfully.</p>
 							</li>
 					</ul>
 
 
 				<h3>Example Usage</h3>
-					<pre><code>lia.char.loaded[1]:save(function()
-	print("Done saving " .. lia.char.loaded[1] .. "!")
+					<pre><code>```lua
+character:save(function()
+    print("Character saved successfully!")
 end)
-> Done saving character[1]! -- after a moment
+```
 </code></pre>
 
 		</section>
@@ -4988,7 +5071,8 @@ end)
 					<h1><span class="realm server"></span></span>characterMeta:setFlags(flags)</h1>
 				</a>
 
-					<p>Sets this character's accessible flags.  Note that this method overwrites <strong>all</strong> flags instead of adding them.</p>
+					<p>Sets the complete set of flags accessible by this character, replacing any existing flags.
+ <strong>Note:</strong> This method overwrites all existing flags and does not append to them.</p>
 			</header>
 
 
@@ -5003,16 +5087,56 @@ end)
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Flag(s) this charater is allowed to have</p>
+								<p> A string containing one or more flags to assign to the character.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:setFlags("petr")
+-- This sets the character's flags to 'p', 'e', 't', 'r'
+```
+</code></pre>
 
-				<h3>See Also</h3>
-				<ul>
-						<li><a href="../../character meta/framework/#giveFlags">giveFlags</a></li>
-				</ul>
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="setup">
+					<h1><span class="realm server"></span></span>characterMeta:setup(noNetworking)</h1>
+				</a>
+
+					<div class="notice error">
+						<div class="title">Internal</div>
+						<p>This is an internal function! You are able to use it, but you risk unintended side effects if used incorrectly.</p>
+					</div>
+					<p>Configures the character's appearance and synchronizes this information with the owning player.
+ This includes setting the player's model, faction, body groups, and skin. Optionally, it can prevent networking to other clients.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">noNetworking</span>
+
+									<span class="tag"><span class="type">Boolean</span></span>
+
+
+								<p> Optional. If set to <code>true</code>, the character's information will not be synchronized with other players.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:setup()
+```
+</code></pre>
+
 		</section>
 		<section class="method">
 			<header>
@@ -5024,9 +5148,11 @@ end)
 						<div class="title">Internal</div>
 						<p>This is an internal function! You are able to use it, but you risk unintended side effects if used incorrectly.</p>
 					</div>
-					<p>Networks this character's information to make the given player aware of this character's existence.  If the receiver is
- not the owner of this character, it will only be sent a limited amount of data (as it does not need anything else).
- This is done automatically by the framework.</p>
+					<p>Synchronizes the character's data with clients, making them aware of the character's current state.
+ This method handles different synchronization scenarios:
+ - If <code>receiver</code> is <code>nil</code>, the character's data is synced to all connected players.
+ - If <code>receiver</code> is the owner of the character, full character data is sent.
+ - If <code>receiver</code> is not the owner, only limited data is sent to prevent unauthorized access.</p>
 			</header>
 
 
@@ -5040,9 +5166,8 @@ end)
 
 									<span class="tag"><span class="type">Player</span></span>
 
-									<span class="tag default">default: nil</span>
 
-								<p> Player to send the information to. This will sync to all connected players if set to <code>nil</code>.</p>
+								<p> The specific player to send the character data to. If <code>nil</code>, data is sent to all players.</p>
 							</li>
 					</ul>
 
@@ -5055,7 +5180,7 @@ end)
 					<h1><span class="realm server"></span></span>characterMeta:takeFlags(flags)</h1>
 				</a>
 
-					<p>Removes this character's access to the given flags.</p>
+					<p>Removes one or more flags from the character's set of accessible flags.</p>
 			</header>
 
 
@@ -5070,15 +5195,17 @@ end)
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Flag(s) to remove from this character</p>
+								<p> A string containing one or more flags to remove.</p>
 							</li>
 					</ul>
 
 
 				<h3>Example Usage</h3>
-					<pre><code>-- for a character with "pet" flags
+					<pre><code>```lua
+-- For a character with "pet" flags
 character:takeFlags("p")
--- character now has e, and t flags
+-- The character now only has 'e' and 't' flags
+```
 </code></pre>
 
 		</section>
@@ -5088,7 +5215,8 @@ character:takeFlags("p")
 					<h1><span class="realm server"></span></span>characterMeta:takeMoney(amount)</h1>
 				</a>
 
-					<p>Takes money from the character's wallet.</p>
+					<p>Specifically removes money from the character's wallet.
+ This function ensures that only positive values are used to subtract from the wallet.</p>
 			</header>
 
 
@@ -5100,10 +5228,10 @@ character:takeFlags("p")
 							<li>
 								<span class="tag parameter">amount</span>
 
-									<span class="tag"><span class="type">Integer</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
 
-								<p> The amount of money to take.</p>
+								<p> The amount of money to remove. Must be a positive number.</p>
 							</li>
 					</ul>
 
@@ -5112,13 +5240,18 @@ character:takeFlags("p")
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>bool Whether the operation was successful.</p>
+								<p>Always returns <code>true</code> to indicate the operation was processed.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>```lua
+character:takeMoney(100) -- Removes 100 from the character's wallet
+```
+</code></pre>
 
 		</section>
 
