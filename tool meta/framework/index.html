@@ -3296,12 +3296,17 @@ getLiliaData											</a>
 getMoney											</a>
 										</li>
 										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#getPlayTime">
+getPlayTime											</a>
+										</li>
+										<li>
 											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3377,13 +3382,8 @@ loadLiliaData											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notify">
-notify											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notifyLocalized">
-notifyLocalized											</a>
+											<a href="../../player meta/framework/#notifyP">
+notifyP											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
@@ -3396,12 +3396,12 @@ notifyP											</a>
 openPage											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
@@ -3452,6 +3452,11 @@ setRagdolled											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
+											<a href="../../player meta/framework/#setWeighPoint">
+setWeighPoint											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#setWeighPoint">
 setWeighPoint											</a>
 										</li>
@@ -3987,6 +3992,11 @@ CheckObjects											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ClearObjects">
+ClearObjects											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Create">
 Create											</a>
 										</li>
@@ -3994,6 +4004,11 @@ Create											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#CreateConVars">
 CreateConVars											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#CustomLogic">
+CustomLogic											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4049,6 +4064,11 @@ Init											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#LeftClick">
 LeftClick											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ReleaseGhostEntity">
+ReleaseGhostEntity											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4558,13 +4578,20 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>boolean True if the tool is allowed, false otherwise.</p>
+								<p>True if the tool is allowed, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if tool:Allowed() then
+    print("Tool is allowed.")
+else
+    print("Tool is not allowed.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4583,13 +4610,19 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Table</span>
 
-								<p>table A table containing the mode-prefixed convars.</p>
+								<p>A table containing the mode-prefixed convars.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local convars = tool:BuildConVarList()
+for k, v in pairs(convars) do
+    print(k, v)
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4604,6 +4637,26 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>tool:CheckObjects()
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="ClearObjects">
+					<h1><span class="realm shared"></span></span>ToolGunMeta:ClearObjects()</h1>
+				</a>
+
+					<p>Clears all objects the tool is manipulating.
+ This method removes all objects from the tool's <code>Objects</code> table, effectively resetting the tool's state.</p>
+			</header>
+
+
+
+				<h3>Example Usage</h3>
+					<pre><code>tool:ClearObjects()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4622,13 +4675,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Table</span>
 
-								<p>table A new tool object with default properties.</p>
+								<p>A new tool object with default properties.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local tool = ToolGunMeta:Create()
+tool.Mode = "builder"
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4643,6 +4700,28 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>tool:CreateConVars()
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="CustomLogic">
+					<h1><span class="realm shared"></span></span>ToolGunMeta:CustomLogic()</h1>
+				</a>
+
+					<p>Placeholder for handling tool-specific logic.
+ This method is intended to be overridden to implement custom logic that should be executed periodically or under specific conditions.</p>
+			</header>
+
+
+
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:CustomLogic()
+    -- Custom periodic logic here
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4657,6 +4736,11 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:Deploy()
+    self:ReleaseGhostEntity()
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4690,13 +4774,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">String</span>
 
-								<p>string The value of the client convar.</p>
+								<p>The value of the client convar.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local toolSetting = tool:GetClientInfo("setting")
+print("Tool Setting:", toolSetting)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4730,10 +4818,10 @@ Think											</a>
 							<li>
 								<span class="tag parameter">default</span>
 
-									<span class="tag"><span class="type">number</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
 
-								<p> The default value to return if the convar is not found.</p>
+								<p> The default value to return if the convar does not exist.</p>
 							</li>
 					</ul>
 
@@ -4742,13 +4830,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Float</span>
 
-								<p>number The numerical value of the client convar.</p>
+								<p>The numerical value of the client convar.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local toolPower = tool:GetClientNumber("power", 10)
+print("Tool Power:", toolPower)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4767,13 +4859,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">String</span>
 
-								<p>string The current mode of the tool.</p>
+								<p>The current mode of the tool.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local mode = tool:GetMode()
+print("Tool Mode:", mode)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4792,13 +4888,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Player</span>
 
-								<p>Player The player who owns the tool.</p>
+								<p>The player who owns the tool.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local owner = tool:GetOwner()
+print("Tool Owner:", owner:Nick())
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4817,13 +4917,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">SWEP</span>
 
-								<p>SWEP The SWEP object associated with the tool.</p>
+								<p>The SWEP object associated with the tool.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local swep = tool:GetSWEP()
+print("Tool SWEP:", swep:GetClass())
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4857,13 +4961,16 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">ConVar</span>
 
-								<p>string The value of the server convar.</p>
+								<p>The server convar object.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local allowUse = tool:GetServerInfo("allow_use"):GetBool()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4882,13 +4989,17 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Weapon</span>
 
-								<p>Weapon The weapon object associated with the tool.</p>
+								<p>The weapon object associated with the tool.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local weapon = tool:GetWeapon()
+print("Associated Weapon:", weapon:GetClass())
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4903,6 +5014,11 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:Holster()
+    self:ReleaseGhostEntity()
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4917,6 +5033,11 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:Init()
+    -- Custom initialization logic here
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4935,13 +5056,36 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>boolean False by default, indicating no action was taken.</p>
+								<p>False by default, indicating no action was taken.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:LeftClick(trace)
+    -- Custom left-click logic here
+    return true
+end
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="ReleaseGhostEntity">
+					<h1><span class="realm shared"></span></span>ToolGunMeta:ReleaseGhostEntity()</h1>
+				</a>
+
+					<p>Releases any ghost entities associated with the tool.
+ This method removes any ghost entities the tool may be holding, ensuring that no visual artifacts remain when the tool is not actively manipulating objects.</p>
+			</header>
+
+
+
+				<h3>Example Usage</h3>
+					<pre><code>tool:ReleaseGhostEntity()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4956,6 +5100,11 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:Reload()
+    self:ClearObjects()
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4974,13 +5123,19 @@ Think											</a>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>boolean False by default, indicating no action was taken.</p>
+								<p>False by default, indicating no action was taken.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:RightClick(trace)
+    -- Custom right-click logic here
+    return true
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4995,6 +5150,11 @@ Think											</a>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>function ToolGunMeta:Think()
+    self:ReleaseGhostEntity()
+end
+</code></pre>
 
 		</section>
 

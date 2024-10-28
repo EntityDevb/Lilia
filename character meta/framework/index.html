@@ -3301,6 +3301,11 @@ getMoney											</a>
 getPlayTime											</a>
 										</li>
 										<li>
+											<span class="realm client"></span>
+											<a href="../../player meta/framework/#getPlayTime">
+getPlayTime											</a>
+										</li>
+										<li>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
@@ -3377,13 +3382,8 @@ loadLiliaData											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notify">
-notify											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notifyLocalized">
-notifyLocalized											</a>
+											<a href="../../player meta/framework/#notifyP">
+notifyP											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
@@ -3452,6 +3452,11 @@ setRagdolled											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
+											<a href="../../player meta/framework/#setWeighPoint">
+setWeighPoint											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#setWeighPoint">
 setWeighPoint											</a>
 										</li>
@@ -3987,6 +3992,11 @@ CheckObjects											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ClearObjects">
+ClearObjects											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Create">
 Create											</a>
 										</li>
@@ -3994,6 +4004,11 @@ Create											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#CreateConVars">
 CreateConVars											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#CustomLogic">
+CustomLogic											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4049,6 +4064,11 @@ Init											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#LeftClick">
 LeftClick											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ReleaseGhostEntity">
+ReleaseGhostEntity											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4584,7 +4604,7 @@ for variables that automatically save to the character object.</p>
 					<pre><code>local char1 = lia.char.loaded[1]
 local char2 = lia.char.loaded[2]
 print(char1 == char2)
--- Output: false
+Output: false
 </code></pre>
 
 		</section>
@@ -4612,7 +4632,7 @@ print(char1 == char2)
 
 				<h3>Example Usage</h3>
 					<pre><code>print(lia.char.loaded[1])
--- Output: "character[1]"
+Output: "character[1]"
 </code></pre>
 
 		</section>
@@ -4738,7 +4758,7 @@ end
 				<h3>Example Usage</h3>
 					<pre><code>local charID = character:getID()
 print(charID)
--- Output: 1
+Output: 1
 </code></pre>
 
 		</section>
@@ -4838,7 +4858,7 @@ end
 
 				<h3>Example Usage</h3>
 					<pre><code>character:giveFlags("pet")
--- Adds 'p', 'e', and 't' flags to the character
+Adds 'p', 'e', and 't' flags to the character
 </code></pre>
 
 		</section>
@@ -5069,7 +5089,7 @@ end)
 
 				<h3>Example Usage</h3>
 					<pre><code>character:setFlags("petr")
--- This sets the character's flags to 'p', 'e', 't', 'r'
+This sets the character's flags to 'p', 'e', 't', 'r'
 </code></pre>
 
 		</section>
@@ -5172,9 +5192,9 @@ end)
 
 
 				<h3>Example Usage</h3>
-					<pre><code>-- For a character with "pet" flags
+					<pre><code>For a character with "pet" flags
 character:takeFlags("p")
--- The character now only has 'e' and 't' flags
+The character now only has 'e' and 't' flags
 </code></pre>
 
 		</section>

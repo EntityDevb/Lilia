@@ -3296,12 +3296,17 @@ getLiliaData											</a>
 getMoney											</a>
 										</li>
 										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#getPlayTime">
+getPlayTime											</a>
+										</li>
+										<li>
 											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3377,13 +3382,8 @@ loadLiliaData											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notify">
-notify											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notifyLocalized">
-notifyLocalized											</a>
+											<a href="../../player meta/framework/#notifyP">
+notifyP											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
@@ -3396,12 +3396,12 @@ notifyP											</a>
 openPage											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
@@ -3452,6 +3452,11 @@ setRagdolled											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
+											<a href="../../player meta/framework/#setWeighPoint">
+setWeighPoint											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#setWeighPoint">
 setWeighPoint											</a>
 										</li>
@@ -3987,6 +3992,11 @@ CheckObjects											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ClearObjects">
+ClearObjects											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Create">
 Create											</a>
 										</li>
@@ -3994,6 +4004,11 @@ Create											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#CreateConVars">
 CreateConVars											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#CustomLogic">
+CustomLogic											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4049,6 +4064,11 @@ Init											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#LeftClick">
 LeftClick											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ReleaseGhostEntity">
+ReleaseGhostEntity											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4618,7 +4638,7 @@ end
 
 				<h3>Example Usage</h3>
 					<pre><code>print(tostring(inventory))
--- Output: "Inventory[123]"
+Output: "Inventory[123]"
 </code></pre>
 
 		</section>
@@ -4760,19 +4780,6 @@ end, 10)
 							</li>
 					</ul>
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>inventory:addDataProxy("health", function(old, new)
@@ -4931,19 +4938,6 @@ end
 
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>inventory:delete()
 </code></pre>
@@ -4959,19 +4953,6 @@ end
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>inventory:destroy()
@@ -5623,19 +5604,6 @@ end)
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>function Inventory:onDataChanged(key, oldValue, newValue)
     print(key, "changed from", oldValue, "to", newValue)
@@ -5654,19 +5622,6 @@ end
 
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>inventory:onInstanced()
 </code></pre>
@@ -5682,19 +5637,6 @@ end
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>function Inventory:onItemsLoaded(items)
@@ -5713,19 +5655,6 @@ end
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>function Inventory:onLoaded()
@@ -5762,7 +5691,7 @@ end
 
 				<h3>Example Usage</h3>
 					<pre><code>inventory:register("grid")
--- This sets the inventory's type to 'grid'
+This sets the inventory's type to 'grid'
 </code></pre>
 
 				<h3>See Also</h3>
@@ -6035,19 +5964,6 @@ end)
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>inventory:sync()
 </code></pre>
@@ -6091,19 +6007,6 @@ end)
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>inventory:syncData("health", {client = player})
 </code></pre>
@@ -6134,19 +6037,6 @@ end)
 							</li>
 					</ul>
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>inventory:syncItemAdded(weapon)

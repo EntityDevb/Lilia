@@ -3296,12 +3296,17 @@ getLiliaData											</a>
 getMoney											</a>
 										</li>
 										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#getPlayTime">
+getPlayTime											</a>
+										</li>
+										<li>
 											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3377,13 +3382,8 @@ loadLiliaData											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notify">
-notify											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notifyLocalized">
-notifyLocalized											</a>
+											<a href="../../player meta/framework/#notifyP">
+notifyP											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
@@ -3396,12 +3396,12 @@ notifyP											</a>
 openPage											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
@@ -3452,6 +3452,11 @@ setRagdolled											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
+											<a href="../../player meta/framework/#setWeighPoint">
+setWeighPoint											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#setWeighPoint">
 setWeighPoint											</a>
 										</li>
@@ -3987,6 +3992,11 @@ CheckObjects											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ClearObjects">
+ClearObjects											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Create">
 Create											</a>
 										</li>
@@ -3994,6 +4004,11 @@ Create											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#CreateConVars">
 CreateConVars											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#CustomLogic">
+CustomLogic											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4049,6 +4064,11 @@ Init											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#LeftClick">
 LeftClick											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ReleaseGhostEntity">
+ReleaseGhostEntity											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4556,9 +4576,10 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">privilegeName</span>
 
+									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> string The name of the privilege to check.</p>
+								<p> The name of the privilege to check.</p>
 							</li>
 					</ul>
 
@@ -4567,13 +4588,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">boolean</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the player has the privilege, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:HasPrivilege("admin") then
+    print("Player is an admin.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4591,21 +4617,22 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
 								<p>Name of this player's currently loaded character</p>
 							</li>
 
-							<div class="or"><span>OR</span></div>
-
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
 								<p>Steam name of this player if the player has no character loaded</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>print("Player Name:", player:Name())
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4640,9 +4667,9 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 75</span>
 
-								<p> The volume of the sound (default 75).</p>
+								<p> The volume of the sound.</p>
 							</li>
 					</ul>
 
@@ -4653,9 +4680,9 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 100</span>
 
-								<p> The pitch of the sound (default 100).</p>
+								<p> The pitch of the sound.</p>
 							</li>
 					</ul>
 
@@ -4666,13 +4693,15 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Whether to emit sound server-side or send it to the client.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:PlaySound("ambient/alarms/warningbell1.wav", 100, 100, false)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4704,6 +4733,9 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:addMoney(1000, {player}, false)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4780,6 +4812,15 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:binaryQuestion("Confirm Action", "Are you sure you want to proceed?", "Yes", "No", false, function(choice)
+    if choice == 1 then
+        print("Player chose Yes.")
+    else
+        print("Player chose No.")
+    end
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4814,13 +4855,20 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player's character can afford the specified amount of money.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:canAfford(500) then
+    print("Player can afford the item.")
+else
+    print("Player cannot afford the item.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4829,7 +4877,7 @@ object at a time that you can interface with.</p>
 					<h1><span class="realm server"></span></span>playerMeta:chatNotify(message)</h1>
 				</a>
 
-					<p>Displays a notification for this player in the chatbox.</p>
+					<p>Notifies the player with a message.</p>
 			</header>
 
 
@@ -4844,11 +4892,14 @@ object at a time that you can interface with.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Text to display in the notification</p>
+								<p> The message to notify the player.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:chatNotify("Welcome to the server!")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4872,20 +4923,23 @@ object at a time that you can interface with.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Text to display in the notification</p>
+								<p> Text to display in the notification.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:chatNotify("Welcome to the server!")
+</code></pre>
 
 		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="chatNotifyLocalized">
-					<h1><span class="realm client"></span></span>playerMeta:chatNotifyLocalized(message, ...)</h1>
+					<h1><span class="realm client"></span></span>playerMeta:chatNotifyLocalized(message, any)</h1>
 				</a>
 
-					<p>Displays a notification for this player in the chatbox with the given language phrase.</p>
+					<p>Displays a notification for the player in the chatbox with the given language phrase.</p>
 			</header>
 
 
@@ -4900,31 +4954,35 @@ object at a time that you can interface with.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> ID of the phrase to display to the player</p>
+								<p> ID of the phrase to display to the player.</p>
 							</li>
 					</ul>
 
 					<ul>
 
 							<li>
-								<span class="tag parameter">...</span>
+								<span class="tag parameter">any</span>
+
+									<span class="tag"><span class="type">...</span></span>
 
 
-
-								<p> Arguments to pass to the phrase</p>
+								<p> Arguments to pass to the phrase.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:chatNotifyLocalized("welcome_message", player:Nick())
+</code></pre>
 
 		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="chatNotifyLocalized">
-					<h1><span class="realm server"></span></span>playerMeta:chatNotifyLocalized(message, ...)</h1>
+					<h1><span class="realm server"></span></span>playerMeta:chatNotifyLocalized(message, any)</h1>
 				</a>
 
-					<p>Displays a notification for this player in the chatbox with the given language phrase.</p>
+					<p>Notifies the player with a localized message.</p>
 			</header>
 
 
@@ -4939,22 +4997,26 @@ object at a time that you can interface with.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> ID of the phrase to display to the player</p>
+								<p> ID of the phrase to display to the player.</p>
 							</li>
 					</ul>
 
 					<ul>
 
 							<li>
-								<span class="tag parameter">...</span>
+								<span class="tag parameter">any</span>
+
+									<span class="tag"><span class="type">...</span></span>
 
 
-
-								<p> Arguments to pass to the phrase</p>
+								<p> Arguments to pass to the phrase.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:chatNotifyLocalized("welcome_message", player:Nick())
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4994,6 +5056,9 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local ragdoll = player:createRagdoll(true)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5016,7 +5081,6 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Determines whether to associate the player with the ragdoll.</p>
 							</li>
@@ -5034,6 +5098,9 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local ragdoll = player:createServerRagdoll()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5066,13 +5133,17 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Float</span>
 
 								<p>The distance from the player to the entity.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local dist = player:distanceFromEnt(entity)
+print("Distance:", dist)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5119,7 +5190,7 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 5</span>
 
 								<p> The duration of the stared action in seconds.</p>
 							</li>
@@ -5132,7 +5203,6 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Function</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> The function to call if the stared action is canceled.</p>
 							</li>
@@ -5145,13 +5215,20 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 96</span>
 
 								<p> The maximum distance for the stared action.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:doStaredAction(targetEntity, function()
+    print("Stared action completed.")
+end, 10, function()
+    print("Stared action canceled.")
+end, 150)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5186,7 +5263,6 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> If true, only return player entities.</p>
 							</li>
@@ -5197,13 +5273,19 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a>
+									<span class="type">Table</span>
 
 								<p>A table containing the entities near the player.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local nearbyPlayers = player:entitiesNearPlayer(200, true)
+for _, p in ipairs(nearbyPlayers) do
+    print("Nearby Player:", p:Nick())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5236,6 +5318,12 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local char = player:getChar()
+if char then
+    print("Character Name:", char:getName())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5260,6 +5348,12 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local vehicle = player:getCurrentVehicle()
+if vehicle then
+    print("Player is in a vehicle:", vehicle:GetClass())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5281,7 +5375,7 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">var</span>
 
-									<span class="tag"><a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a></span>
+									<span class="tag"><span class="type">String</span></span>
 
 
 								<p> The DarkRP variable to fetch (only "money" is allowed).</p>
@@ -5293,13 +5387,19 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span> or <span class="type">nil</span>
+									<span class="type">Integer</span> or <span class="type">nil</span>
 
 								<p>The player's money if the variable is valid, or nil if not.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local money = player:getDarkRPVar("money")
+if money then
+    print("Player Money:", money)
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5322,7 +5422,6 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> The maximum distance to consider.</p>
 							</li>
@@ -5340,6 +5439,12 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local eyeEnt = player:getEyeEnt(200)
+if eyeEnt then
+    print("Entity in sight:", eyeEnt:GetClass())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5364,6 +5469,10 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local dropPos = player:getItemDropPos()
+item:spawn(dropPos, Angle(0, 0, 0))
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5388,6 +5497,12 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local weapon, item = player:getItemWeapon()
+if weapon then
+    print("Active Weapon:", weapon:GetClass())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5405,13 +5520,21 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a> or <span class="type">nil</span>
+									<span class="type">Table</span> or <span class="type">nil</span>
 
 								<p>A table containing the items in the player's character inventory, or nil if not found.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local items = player:getItems()
+if items then
+    for _, item in ipairs(items) do
+        print("Item:", item.uniqueID)
+    end
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5444,8 +5567,8 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">default</span>
 
+									<span class="tag"><span class="type">any[opt=nil]</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> The default value to return if the key does not exist.</p>
 							</li>
@@ -5463,6 +5586,10 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local rank = player:getLiliaData("rank", "Novice")
+print("Player Rank:", rank)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5495,9 +5622,10 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">default</span>
 
+									<span class="tag"><span class="type">any[opt=nil]</span></span>
 
 
-								<p>[opt=nil] The default value to return if the key does not exist.</p>
+								<p> The default value to return if the key does not exist.</p>
 							</li>
 					</ul>
 
@@ -5513,6 +5641,10 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local level = player:getLiliaData("level", 1)
+print("Player Level:", level)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5530,13 +5662,17 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Integer</span>
 
 								<p>The amount of money owned by the player's character.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local money = player:getMoney()
+print("Player Money:", money)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5554,13 +5690,45 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Float</span>
 
 								<p>The total playtime of the player.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local playTime = player:getPlayTime()
+print("Playtime:", playTime, "seconds")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getPlayTime">
+					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
+				</a>
+
+					<p>Retrieves the player's total playtime.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">Float</span>
+
+								<p>The total playtime of the player.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local playTime = player:getPlayTime()
+print("Playtime:", playTime, "seconds")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5578,13 +5746,17 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Float</span>
 
 								<p>The total playtime of the player.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local playTime = player:getPlayTime()
+print("Playtime:", playTime, "seconds")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5609,6 +5781,12 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local ragdoll = player:getRagdoll()
+if ragdoll then
+    print("Ragdoll found:", ragdoll:GetClass())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5626,13 +5804,19 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.5">table</a>
+									<span class="type">Table</span>
 
 								<p>A table containing the trace result.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local trace = player:getTrace()
+if trace.Hit then
+    print("Trace hit:", trace.Entity:GetClass())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5657,6 +5841,12 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local target = player:getTracedEntity()
+if target then
+    print("Traced Entity:", target:GetClass())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5674,13 +5864,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player has a valid ragdoll entity.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:hasRagdoll() then
+    print("Player has a ragdoll.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5698,13 +5893,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
-								<p>true if the player is in a valid vehicle, false otherwise.</p>
+								<p>True if the player is in a valid vehicle, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:hasValidVehicle() then
+    print("Player is in a valid vehicle.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5722,13 +5922,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player's character is female.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isFemale() then
+    print("Player character is female.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5746,13 +5951,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is currently moving.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isMoving() then
+    print("Player is moving.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5797,13 +6007,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is near the specified entity within the given radius.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isNearPlayer(100, targetPlayer) then
+    print("Player is near the target.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5821,13 +6036,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is in noclip mode.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isNoClipping() then
+    print("Player is in noclip mode.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5845,13 +6065,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is currently observing.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isObserving() then
+    print("Player is observing.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5869,13 +6094,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is currently outside (in the sky).</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isOutside() then
+    print("Player is outside.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5893,13 +6123,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is running.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isRunning() then
+    print("Player is running.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5917,13 +6152,18 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the player is stuck.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if player:isStuck() then
+    print("Player is stuck.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5946,22 +6186,26 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Function</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Function to call after the data is loaded, passing the loaded data as an argument.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:loadLiliaData(function(data)
+    print("Data loaded:", data)
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
 			<header>
-				<a class="anchor" id="notify">
-					<h1><span class="realm server"></span></span>playerMeta:notify(message)</h1>
+				<a class="anchor" id="notifyP">
+					<h1><span class="realm server"></span></span>playerMeta:notifyP(message)</h1>
 				</a>
 
-					<p>Notifies the player with a message.</p>
+					<p>Notifies the player with a message and prints the message to their chat.</p>
 			</header>
 
 
@@ -5976,51 +6220,14 @@ object at a time that you can interface with.</p>
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The message to notify the player.</p>
+								<p> The message to notify and print.</p>
 							</li>
 					</ul>
 
 
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="notifyLocalized">
-					<h1><span class="realm server"></span></span>playerMeta:notifyLocalized(message, ...)</h1>
-				</a>
-
-					<p>Notifies the player with a localized message.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">message</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The key of the localized message to notify the player.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">...</span>
-
-									<span class="tag"><span class="type">Table</span></span>
-
-
-								<p> Additional arguments to format the localized message.</p>
-							</li>
-					</ul>
-
-
+				<h3>Example Usage</h3>
+					<pre><code>player:notifyP("You have received a new item!")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6049,6 +6256,9 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:notifyP("You have received a new item!")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6077,6 +6287,9 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:openPage("https://example.com")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6097,6 +6310,7 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">panel</span>
 
+									<span class="tag"><span class="type">String</span></span>
 
 
 								<p> The name of the VGUI panel to open.</p>
@@ -6104,6 +6318,9 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:openUI("InventoryPanel")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6124,6 +6341,7 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">panel</span>
 
+									<span class="tag"><span class="type">String</span></span>
 
 
 								<p> The panel type to create.</p>
@@ -6142,6 +6360,9 @@ object at a time that you can interface with.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local inventoryPanel = player:openUI("InventoryPanel")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6206,6 +6427,11 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:requestDropdown("Choose Option", "Select one of the following:", {"Option1", "Option2"}, function(selected)
+    print("Player selected:", selected)
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6262,7 +6488,7 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">limit</span>
 
-									<span class="tag"><span class="type">number</span></span>
+									<span class="tag"><span class="type">Integer</span></span>
 
 
 								<p> The maximum number of selectable options.</p>
@@ -6282,6 +6508,11 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:requestOptions("Select Items", "Choose up to 3 items:", {"Item1", "Item2", "Item3"}, 3, function(selected)
+    print("Player selected:", table.concat(selected, ", "))
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6338,8 +6569,9 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">default</span>
 
+									<span class="tag"><span class="type">String</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: nil</span>
 
 								<p> The default value for the string input.</p>
 							</li>
@@ -6350,13 +6582,25 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">Promise</span>
+									<span class="type">Promise</span> or <span class="type">nil</span>
 
-								<p>A promise object resolving with the entered string.</p>
+								<p>A promise object resolving with the entered string, or nil if a callback is provided.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>player:requestString("Enter Name", "Please enter your name:", function(name)
+    print("Player entered:", name)
+end)
+-- Using promise
+local promise = player:requestString("Enter Name", "Please enter your name:", "DefaultName")
+if promise then
+    promise:next(function(name)
+        print("Player entered:", name)
+    end)
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6370,6 +6614,9 @@ object at a time that you can interface with.</p>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:saveLiliaData()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6404,9 +6651,9 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 5</span>
 
-								<p> The duration for the action bar to display, defaults to 5 seconds. Set to 0 or nil to remove the action bar immediately.</p>
+								<p> The duration for the action bar to display in seconds. Set to 0 or nil to remove the action bar immediately.</p>
 							</li>
 					</ul>
 
@@ -6417,7 +6664,6 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Function</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Function to execute when the action bar timer expires.</p>
 							</li>
@@ -6450,12 +6696,15 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:setAction("Processing...", 10, function(p) print("Action completed for", p:Nick()) end)
+</code></pre>
 
 		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="setLiliaData">
-					<h1><span class="realm server"></span></span>playerMeta:setLiliaData(key, value, noNetworking)</h1>
+					<h1><span class="realm server"></span></span>playerMeta:setLiliaData(key, value, receivers, noSave, noCheckEntity)</h1>
 				</a>
 
 					<p>Sets a key-value pair in the player's Lilia data.</p>
@@ -6482,6 +6731,7 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">value</span>
 
+									<span class="tag"><span class="type">any[opt=nil]</span></span>
 
 
 								<p> The value to set.</p>
@@ -6491,17 +6741,44 @@ object at a time that you can interface with.</p>
 					<ul>
 
 							<li>
-								<span class="tag parameter">noNetworking</span>
+								<span class="tag parameter">receivers</span>
+
+									<span class="tag"><span class="type">Table</span></span>
+
+									<span class="tag default">default: nil</span>
+
+								<p> The players to replicate the data on.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">noSave</span>
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
-								<p> If true, suppresses network broadcasting of the update.</p>
+								<p> Whether to disable saving the data in the database or not.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">noCheckEntity</span>
+
+									<span class="tag"><span class="type">Boolean</span></span>
+
+
+								<p> Whether to disable setting the data on the entity, if applicable.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:setLiliaData("score", 1500, {player1, player2}, false, false)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6534,6 +6811,7 @@ object at a time that you can interface with.</p>
 							<li>
 								<span class="tag parameter">value</span>
 
+									<span class="tag"><span class="type">any</span></span>
 
 
 								<p> The value of the variable.</p>
@@ -6541,6 +6819,9 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:setLocalVar("health", 100)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6569,6 +6850,10 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>local ragdoll = player:createServerRagdoll()
+player:setRagdoll(ragdoll)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6603,7 +6888,7 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 0</span>
 
 								<p> The duration for which the player remains ragdolled.</p>
 							</li>
@@ -6616,7 +6901,7 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">Integer</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: 0</span>
 
 								<p> The grace period for the player to get up before the ragdoll is removed.</p>
 							</li>
@@ -6629,13 +6914,16 @@ object at a time that you can interface with.</p>
 
 									<span class="tag"><span class="type">String</span></span>
 
-									<span class="tag default">optional</span>
+									<span class="tag default">default: &quot;@wakingUp&quot;</span>
 
 								<p> The message displayed when the player is getting up.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:setRagdolled(true, 10, 5, "@gettingUp")
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6683,11 +6971,73 @@ object at a time that you can interface with.</p>
 									<span class="tag"><span class="type">Function</span></span>
 
 
-								<p>[opt=nil] Function to call when the player reaches the waypoint.</p>
+								<p> Function to call when the player reaches the waypoint.</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:setWeighPoint("Spawn Point", Vector(100, 200, 300), function(p)
+    print("Player reached the waypoint.")
+end)
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="setWeighPoint">
+					<h1><span class="realm server"></span></span>playerMeta:setWeighPoint(name, vector, onReach)</h1>
+				</a>
+
+					<p>Sets a waypoint for the player.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">name</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The name of the waypoint.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">vector</span>
+
+									<span class="tag"><span class="type">Vector</span></span>
+
+
+								<p> The position vector of the waypoint.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">onReach</span>
+
+									<span class="tag"><span class="type">Function</span></span>
+
+
+								<p> Function to call when the player reaches the waypoint.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:setWeighPoint("Spawn Point", Vector(100, 200, 300), function(p)
+    print("Player reached the waypoint.")
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6720,13 +7070,17 @@ object at a time that you can interface with.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Float</span>
 
 								<p>The squared distance from the player to the entity.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local sqDist = player:squaredDistanceFromEnt(entity)
+print("Squared Distance:", sqDist)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6741,6 +7095,9 @@ object at a time that you can interface with.</p>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:stopAction()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6749,15 +7106,14 @@ object at a time that you can interface with.</p>
 					<h1><span class="realm server"></span></span>playerMeta:syncVars()</h1>
 				</a>
 
-					<div class="notice error">
-						<div class="title">Internal</div>
-						<p>This is an internal function! You are able to use it, but you risk unintended side effects if used incorrectly.</p>
-					</div>
 					<p>Synchronizes networked variables with the player.</p>
 			</header>
 
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:syncVars()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -6786,6 +7142,9 @@ object at a time that you can interface with.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>player:takeMoney(200)
+</code></pre>
 
 		</section>
 

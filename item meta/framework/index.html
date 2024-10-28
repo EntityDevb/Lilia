@@ -3296,12 +3296,17 @@ getLiliaData											</a>
 getMoney											</a>
 										</li>
 										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#getPlayTime">
+getPlayTime											</a>
+										</li>
+										<li>
 											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3377,13 +3382,8 @@ loadLiliaData											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notify">
-notify											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../player meta/framework/#notifyLocalized">
-notifyLocalized											</a>
+											<a href="../../player meta/framework/#notifyP">
+notifyP											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
@@ -3396,12 +3396,12 @@ notifyP											</a>
 openPage											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
@@ -3452,6 +3452,11 @@ setRagdolled											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
+											<a href="../../player meta/framework/#setWeighPoint">
+setWeighPoint											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#setWeighPoint">
 setWeighPoint											</a>
 										</li>
@@ -3987,6 +3992,11 @@ CheckObjects											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ClearObjects">
+ClearObjects											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Create">
 Create											</a>
 										</li>
@@ -3994,6 +4004,11 @@ Create											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#CreateConVars">
 CreateConVars											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#CustomLogic">
+CustomLogic											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4049,6 +4064,11 @@ Init											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#LeftClick">
 LeftClick											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../tool meta/framework/#ReleaseGhostEntity">
+ReleaseGhostEntity											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4610,7 +4630,7 @@ end
 
 				<h3>Example Usage</h3>
 					<pre><code>print(tostring(lia.item.instances[1]))
--- Output: "item[uniqueID][1]"
+Output: "item[uniqueID][1]"
 </code></pre>
 
 		</section>
@@ -4663,19 +4683,6 @@ end
 							</li>
 					</ul>
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>item:addQuantity(5, {player1, player2}, false)
@@ -4799,19 +4806,6 @@ end)
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>item:destroy()
@@ -5225,19 +5219,6 @@ print("Skin:", skin)
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>item:hook("onUse", function(item)
     print("Item was used.")
@@ -5338,19 +5319,6 @@ end
 
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>function ITEM:onDisposed()
     print("Item has been disposed.")
@@ -5368,19 +5336,6 @@ end
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>function ITEM:onInstanced()
@@ -5400,19 +5355,6 @@ end
 
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>function ITEM:onRegistered()
     print("Item has been registered.")
@@ -5430,19 +5372,6 @@ end
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>function ITEM:onRemoved()
@@ -5462,19 +5391,6 @@ end
 
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>function ITEM:onRestored()
     print("Item has been restored.")
@@ -5492,19 +5408,6 @@ end
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>function ITEM:onSync(recipient)
@@ -5551,19 +5454,6 @@ end
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>item:postHook("onUse", function(item, result)
     print("Item use post-processing.")
@@ -5597,19 +5487,6 @@ end)
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>item:print()
 item:print(true)
@@ -5626,19 +5503,6 @@ item:print(true)
 			</header>
 
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>item:printData()
@@ -5796,19 +5660,6 @@ end)
 					</ul>
 
 
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
-
 				<h3>Example Usage</h3>
 					<pre><code>item:setData("health", 100, {player1, player2}, false, false)
 </code></pre>
@@ -5863,19 +5714,6 @@ end)
 							</li>
 					</ul>
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>item:setQuantity(10, {player1}, true)
@@ -5962,19 +5800,6 @@ end)
 							</li>
 					</ul>
 
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">void</span>
-
-								<p>
-
-</p>
-							</li>
-
-				</ul>
 
 				<h3>Example Usage</h3>
 					<pre><code>item:sync(player)
