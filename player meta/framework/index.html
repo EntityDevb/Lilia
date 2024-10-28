@@ -3296,12 +3296,12 @@ getLiliaData											</a>
 getMoney											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3382,6 +3382,16 @@ loadLiliaData											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
+											<a href="../../player meta/framework/#notify">
+notify											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#notifyLocalized">
+notifyLocalized											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#notifyP">
 notifyP											</a>
 										</li>
@@ -3396,12 +3406,12 @@ notifyP											</a>
 openPage											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
@@ -4874,37 +4884,6 @@ end
 		<section class="method">
 			<header>
 				<a class="anchor" id="chatNotify">
-					<h1><span class="realm server"></span></span>playerMeta:chatNotify(message)</h1>
-				</a>
-
-					<p>Notifies the player with a message.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">message</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The message to notify the player.</p>
-							</li>
-					</ul>
-
-
-				<h3>Example Usage</h3>
-					<pre><code>player:chatNotify("Welcome to the server!")
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="chatNotify">
 					<h1><span class="realm client"></span></span>playerMeta:chatNotify(message)</h1>
 				</a>
 
@@ -4924,6 +4903,37 @@ end
 
 
 								<p> Text to display in the notification.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:chatNotify("Welcome to the server!")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="chatNotify">
+					<h1><span class="realm server"></span></span>playerMeta:chatNotify(message)</h1>
+				</a>
+
+					<p>Notifies the player with a message.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">message</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The message to notify the player.</p>
 							</li>
 					</ul>
 
@@ -5540,61 +5550,6 @@ end
 		<section class="method">
 			<header>
 				<a class="anchor" id="getLiliaData">
-					<h1><span class="realm client"></span></span>playerMeta:getLiliaData(key, default)</h1>
-				</a>
-
-					<p>Retrieves a value from the local Lilia data.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">key</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The key for the data.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">default</span>
-
-									<span class="tag"><span class="type">any[opt=nil]</span></span>
-
-
-								<p> The default value to return if the key does not exist.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">any</span>
-
-								<p>The value corresponding to the key, or the default value if the key does not exist.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>local rank = player:getLiliaData("rank", "Novice")
-print("Player Rank:", rank)
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="getLiliaData">
 					<h1><span class="realm server"></span></span>playerMeta:getLiliaData(key, default)</h1>
 				</a>
 
@@ -5649,6 +5604,61 @@ print("Player Level:", level)
 		</section>
 		<section class="method">
 			<header>
+				<a class="anchor" id="getLiliaData">
+					<h1><span class="realm client"></span></span>playerMeta:getLiliaData(key, default)</h1>
+				</a>
+
+					<p>Retrieves a value from the local Lilia data.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">key</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The key for the data.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">default</span>
+
+									<span class="tag"><span class="type">any[opt=nil]</span></span>
+
+
+								<p> The default value to return if the key does not exist.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">any</span>
+
+								<p>The value corresponding to the key, or the default value if the key does not exist.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local rank = player:getLiliaData("rank", "Novice")
+print("Player Rank:", rank)
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
 				<a class="anchor" id="getMoney">
 					<h1><span class="realm shared"></span></span>playerMeta:getMoney()</h1>
 				</a>
@@ -5678,63 +5688,63 @@ print("Player Money:", money)
 		<section class="method">
 			<header>
 				<a class="anchor" id="getPlayTime">
-					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
-				</a>
-
-					<p>Retrieves the player's total playtime.</p>
-			</header>
-
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Float</span>
-
-								<p>The total playtime of the player.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>local playTime = player:getPlayTime()
-print("Playtime:", playTime, "seconds")
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="getPlayTime">
-					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
-				</a>
-
-					<p>Retrieves the player's total playtime.</p>
-			</header>
-
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Float</span>
-
-								<p>The total playtime of the player.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>local playTime = player:getPlayTime()
-print("Playtime:", playTime, "seconds")
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="getPlayTime">
 					<h1><span class="realm server"></span></span>playerMeta:getPlayTime()</h1>
+				</a>
+
+					<p>Retrieves the player's total playtime.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">Float</span>
+
+								<p>The total playtime of the player.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local playTime = player:getPlayTime()
+print("Playtime:", playTime, "seconds")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getPlayTime">
+					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
+				</a>
+
+					<p>Retrieves the player's total playtime.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">Float</span>
+
+								<p>The total playtime of the player.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local playTime = player:getPlayTime()
+print("Playtime:", playTime, "seconds")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getPlayTime">
+					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
 				</a>
 
 					<p>Retrieves the player's total playtime.</p>
@@ -6201,11 +6211,11 @@ end)
 		</section>
 		<section class="method">
 			<header>
-				<a class="anchor" id="notifyP">
-					<h1><span class="realm server"></span></span>playerMeta:notifyP(message)</h1>
+				<a class="anchor" id="notify">
+					<h1><span class="realm server"></span></span>playerMeta:notify(message)</h1>
 				</a>
 
-					<p>Notifies the player with a message and prints the message to their chat.</p>
+					<p>Notifies the player with a message.</p>
 			</header>
 
 
@@ -6220,14 +6230,51 @@ end)
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The message to notify and print.</p>
+								<p> The message to notify the player.</p>
 							</li>
 					</ul>
 
 
-				<h3>Example Usage</h3>
-					<pre><code>player:notifyP("You have received a new item!")
-</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="notifyLocalized">
+					<h1><span class="realm server"></span></span>playerMeta:notifyLocalized(message, ...)</h1>
+				</a>
+
+					<p>Notifies the player with a localized message.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">message</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The key of the localized message to notify the player.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">...</span>
+
+									<span class="tag"><span class="type">Table</span></span>
+
+
+								<p> Additional arguments to format the localized message.</p>
+							</li>
+					</ul>
+
+
 
 		</section>
 		<section class="method">
@@ -6247,6 +6294,37 @@ end)
 
 							<li>
 								<span class="tag parameter">text</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The message to notify and print.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:notifyP("You have received a new item!")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="notifyP">
+					<h1><span class="realm server"></span></span>playerMeta:notifyP(message)</h1>
+				</a>
+
+					<p>Notifies the player with a message and prints the message to their chat.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">message</span>
 
 									<span class="tag"><span class="type">String</span></span>
 
@@ -6593,7 +6671,7 @@ end)
 					<pre><code>player:requestString("Enter Name", "Please enter your name:", function(name)
     print("Player entered:", name)
 end)
--- Using promise
+Using promise
 local promise = player:requestString("Enter Name", "Please enter your name:", "DefaultName")
 if promise then
     promise:next(function(name)
@@ -6704,10 +6782,11 @@ end
 		<section class="method">
 			<header>
 				<a class="anchor" id="setLiliaData">
-					<h1><span class="realm server"></span></span>playerMeta:setLiliaData(key, value, receivers, noSave, noCheckEntity)</h1>
+					<h1><span class="realm server"></span></span>playerMeta:setLiliaData(key, value, noNetworking)</h1>
 				</a>
 
-					<p>Sets a key-value pair in the player's Lilia data.</p>
+					<p>Sets a key-value pair in the player's Lilia data.
+ This method updates the player's <code>liaData</code> table with the specified key and value. Optionally, it can suppress the networking of the data update.</p>
 			</header>
 
 
@@ -6734,50 +6813,43 @@ end
 									<span class="tag"><span class="type">any[opt=nil]</span></span>
 
 
-								<p> The value to set.</p>
+								<p> The value to set for the specified key. Defaults to <code>nil</code> if not provided.</p>
 							</li>
 					</ul>
 
 					<ul>
 
 							<li>
-								<span class="tag parameter">receivers</span>
+								<span class="tag parameter">noNetworking</span>
 
-									<span class="tag"><span class="type">Table</span></span>
+									<span class="tag"><span class="type">Boolean[opt=false]</span></span>
 
-									<span class="tag default">default: nil</span>
 
-								<p> The players to replicate the data on.</p>
+								<p> If set to <code>true</code>, the data update will not be sent to clients. Defaults to <code>false</code>.</p>
 							</li>
 					</ul>
 
-					<ul>
+
+				<h3>Returns</h3>
+				<ul>
 
 							<li>
-								<span class="tag parameter">noSave</span>
+									<span class="type">void</span>
 
-									<span class="tag"><span class="type">Boolean</span></span>
+								<p>
 
-
-								<p> Whether to disable saving the data in the database or not.</p>
+</p>
 							</li>
-					</ul>
 
-					<ul>
-
-							<li>
-								<span class="tag parameter">noCheckEntity</span>
-
-									<span class="tag"><span class="type">Boolean</span></span>
-
-
-								<p> Whether to disable setting the data on the entity, if applicable.</p>
-							</li>
-					</ul>
-
+				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>player:setLiliaData("score", 1500, {player1, player2}, false, false)
+					<pre><code>```lua
+Example 1: Setting a key-value pair with networking
+player:setLiliaData("score", 1500)
+Example 2: Setting a key-value pair without networking
+player:setLiliaData("health", 100, true)
+```
 </code></pre>
 
 		</section>
