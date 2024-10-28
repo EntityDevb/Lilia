@@ -4576,12 +4576,10 @@ for variables that automatically save to the character object.</p>
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-local char1 = lia.char.loaded[1]
+					<pre><code>local char1 = lia.char.loaded[1]
 local char2 = lia.char.loaded[2]
 print(char1 == char2)
 -- Output: false
-```
 </code></pre>
 
 		</section>
@@ -4608,10 +4606,8 @@ print(char1 == char2)
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-print(lia.char.loaded[1])
+					<pre><code>print(lia.char.loaded[1])
 -- Output: "character[1]"
-```
 </code></pre>
 
 		</section>
@@ -4643,10 +4639,8 @@ print(lia.char.loaded[1])
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:ban(3600) -- Bans the character for 1 hour
+					<pre><code>character:ban(3600) -- Bans the character for 1 hour
 character:ban() -- Permanently bans the character
-```
 </code></pre>
 
 		</section>
@@ -4662,9 +4656,7 @@ character:ban() -- Permanently bans the character
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:delete()
-```
+					<pre><code>character:delete()
 </code></pre>
 
 		</section>
@@ -4681,9 +4673,7 @@ character:delete()
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:destroy()
-```
+					<pre><code>character:destroy()
 </code></pre>
 
 		</section>
@@ -4710,13 +4700,11 @@ character:destroy()
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-local flags = character:getFlags()
+					<pre><code>local flags = character:getFlags()
 for i = 1, #flags do
     local flag = flags:sub(i, i)
     print("Flag:", flag)
 end
-```
 </code></pre>
 
 		</section>
@@ -4743,11 +4731,9 @@ end
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-local charID = character:getID()
+					<pre><code>local charID = character:getID()
 print(charID)
 -- Output: 1
-```
 </code></pre>
 
 		</section>
@@ -4780,14 +4766,12 @@ print(charID)
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-local weapon, item = character:getItemWeapon()
+					<pre><code>local weapon, item = character:getItemWeapon()
 if weapon then
     print("Equipped weapon:", weapon:GetClass())
 else
     print("No weapon equipped.")
 end
-```
 </code></pre>
 
 		</section>
@@ -4814,12 +4798,10 @@ end
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-local owner = character:getPlayer()
+					<pre><code>local owner = character:getPlayer()
 if owner then
     print("Character is owned by:", owner:Nick())
 end
-```
 </code></pre>
 
 		</section>
@@ -4850,10 +4832,8 @@ end
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:giveFlags("pet")
+					<pre><code>character:giveFlags("pet")
 -- Adds 'p', 'e', and 't' flags to the character
-```
 </code></pre>
 
 		</section>
@@ -4909,10 +4889,8 @@ character:giveFlags("pet")
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:giveMoney(500) -- Adds 500 to the character's wallet
+					<pre><code>character:giveMoney(500) -- Adds 500 to the character's wallet
 character:giveMoney(-200, true) -- Takes 200 from the character's wallet
-```
 </code></pre>
 
 		</section>
@@ -4954,11 +4932,9 @@ character:giveMoney(-200, true) -- Takes 200 from the character's wallet
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-if character:hasFlags("admin") then
+					<pre><code>if character:hasFlags("admin") then
     print("Character has admin privileges.")
 end
-```
 </code></pre>
 
 		</section>
@@ -5000,14 +4976,12 @@ end
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-local hasEnoughMoney = character:hasMoney(100)
+					<pre><code>local hasEnoughMoney = character:hasMoney(100)
 if hasEnoughMoney then
     print("Character has sufficient funds.")
 else
     print("Character lacks sufficient funds.")
 end
-```
 </code></pre>
 
 		</section>
@@ -5024,9 +4998,7 @@ end
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:kick()
-```
+					<pre><code>character:kick()
 </code></pre>
 
 		</section>
@@ -5057,11 +5029,9 @@ character:kick()
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:save(function()
+					<pre><code>character:save(function()
     print("Character saved successfully!")
 end)
-```
 </code></pre>
 
 		</section>
@@ -5093,10 +5063,8 @@ end)
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:setFlags("petr")
+					<pre><code>character:setFlags("petr")
 -- This sets the character's flags to 'p', 'e', 't', 'r'
-```
 </code></pre>
 
 		</section>
@@ -5132,9 +5100,7 @@ character:setFlags("petr")
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:setup()
-```
+					<pre><code>character:setup()
 </code></pre>
 
 		</section>
@@ -5201,11 +5167,9 @@ character:setup()
 
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
--- For a character with "pet" flags
+					<pre><code>-- For a character with "pet" flags
 character:takeFlags("p")
 -- The character now only has 'e' and 't' flags
-```
 </code></pre>
 
 		</section>
@@ -5248,9 +5212,7 @@ character:takeFlags("p")
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>```lua
-character:takeMoney(100) -- Removes 100 from the character's wallet
-```
+					<pre><code>character:takeMoney(100) -- Removes 100 from the character's wallet
 </code></pre>
 
 		</section>

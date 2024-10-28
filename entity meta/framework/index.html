@@ -4527,7 +4527,7 @@ Think											</a>
 </header>
 
 <p>Entities are physical representations of objects in the game world. Lilia extends the functionality of entities to interface
-between Lilia's own classes, and to reduce boilerplate code.</p>
+between Lilia's own classes and to reduce boilerplate code.</p>
 
 <p>See the <a href="https://wiki.garrysmod.com/page/Category:Entity">Garry's Mod Wiki</a> for all other methods that the <code>Player</code> class has.</p>
 
@@ -4559,6 +4559,9 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>entity:assignCreator(player)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4591,13 +4594,20 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity can see the target entity, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:canSeeEntity(targetEntity) then
+    print("Entity can see the target entity.")
+else
+    print("Entity cannot see the target entity.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4622,15 +4632,17 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">receiver</span>
 
-									<span class="tag"><span class="type">Table</span></span>
+									<span class="tag"><span class="type">Player</span></span>
 
-									<span class="tag default">default: nil</span>
 
 								<p> The players to clear the networked variable for</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>entity:clearNetVars(player)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4655,6 +4667,10 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local dropPos = entity:getEntItemDropPos()
+print("Item drop position:", dropPos)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4687,6 +4703,7 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">default</span>
 
+									<span class="tag"><span class="type">any</span></span>
 
 
 								<p> Default value to return if the networked variable is not set</p>
@@ -4698,16 +4715,16 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">any</span>
 
-								<p>value associated with the key, or the default that was given if it doesn't exist</p>
+								<p>The value associated with the key, or the default that was given if it doesn't exist</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>print(client:getNetVar("example"))
- > Hello World!
+					<pre><code>local example = entity:getNetVar("example", "Default Value")
+print(example) -- Output: "Hello World!" or "Default Value"
 </code></pre>
 
 				<h3>See Also</h3>
@@ -4745,6 +4762,7 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">default</span>
 
+									<span class="tag"><span class="type">any</span></span>
 
 
 								<p> The default value to return if the networked variable does not exist.</p>
@@ -4763,6 +4781,10 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local example = entity:getNetVar("example", "Default Value")
+print(example) -- Output: "Hello World!" or "Default Value"
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4795,13 +4817,17 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">The</span>
 
-								<p>The view angle in degrees.</p>
+								<p>view angle in degrees.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local angle = entity:getViewAngle(targetPos)
+print("View angle:", angle)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4825,7 +4851,7 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 									<span class="tag"><span class="type">Entity</span></span>
 
 
-								<p> The entity to check the field of view against.</p>
+								<p> to check the field of view against.</p>
 							</li>
 					</ul>
 
@@ -4834,9 +4860,8 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">fov</span>
 
-									<span class="tag"><span class="type">number</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
-									<span class="tag default">default: 88</span>
 
 								<p> The field of view angle in degrees.</p>
 							</li>
@@ -4847,13 +4872,18 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is within the field of view, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:inFov(playerEntity, 90) then
+    print("Entity is within the player's field of view.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4886,13 +4916,20 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is in line of sight, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:inTrace(targetEntity) then
+    print("Entity is in line of sight of the target.")
+else
+    print("Entity is not in line of sight of the target.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4910,13 +4947,18 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is a chair, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isChair() then
+    print("Entity is a chair.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4949,13 +4991,20 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is in the same room as the target entity, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isInRoom(targetEntity) then
+    print("Entities are in the same room.")
+else
+    print("Entities are not in the same room.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4973,13 +5022,18 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is an item entity, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isItem() then
+    print("Entity is an item.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4997,13 +5051,18 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is a money entity, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isMoney() then
+    print("Entity is money.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5024,9 +5083,8 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">radius</span>
 
-									<span class="tag"><span class="type">number</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
-									<span class="tag default">default: 96</span>
 
 								<p> The radius within which to check for nearby entities.</p>
 							</li>
@@ -5037,13 +5095,20 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if there is an entity nearby, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isNearEntity(150) then
+    print("There is an entity nearby.")
+else
+    print("No entities within the specified radius.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5061,13 +5126,20 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is a physics prop, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isProp() then
+    print("Entity is a physics prop.")
+else
+    print("Entity is not a physics prop.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5100,9 +5172,8 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">maxDist</span>
 
-									<span class="tag"><span class="type">number</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
-									<span class="tag default">default: 512^2</span>
 
 								<p> The maximum distance squared within which the entity can see the other entity.</p>
 							</li>
@@ -5113,9 +5184,8 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">fov</span>
 
-									<span class="tag"><span class="type">number</span></span>
+									<span class="tag"><span class="type">Float</span></span>
 
-									<span class="tag default">default: 88</span>
 
 								<p> The field of view angle in degrees.</p>
 							</li>
@@ -5126,13 +5196,18 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity has a clear line of sight to the other entity within the specified distance and field of view angle, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isScreenVisible(targetEntity, 300000, 90) then
+    print("Entity is visible on the screen.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5150,13 +5225,18 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>True if the entity is a simfphys car, false otherwise.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if entity:isSimfphysCar() then
+    print("Entity is a simfphys car.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5193,15 +5273,17 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">receiver</span>
 
-									<span class="tag"><span class="type">Table</span></span>
+									<span class="tag"><span class="type">Player</span></span>
 
-									<span class="tag default">default: nil</span>
 
 								<p> The players to send the networked variable to</p>
 							</li>
 					</ul>
 
 
+				<h3>Example Usage</h3>
+					<pre><code>entity:sendNetVar("health", player)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5234,6 +5316,7 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">value</span>
 
+									<span class="tag"><span class="type">any</span></span>
 
 
 								<p> New value to assign to the networked variable</p>
@@ -5245,17 +5328,29 @@ between Lilia's own classes, and to reduce boilerplate code.</p>
 							<li>
 								<span class="tag parameter">receiver</span>
 
-									<span class="tag"><span class="type">Table</span></span>
+									<span class="tag"><span class="type">Player</span></span>
 
-									<span class="tag default">default: nil</span>
 
 								<p> The players to send the networked variable to</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
 				<h3>Example Usage</h3>
-					<pre><code>client:setNetVar("example", "Hello World!")
+					<pre><code>entity:setNetVar("example", "Hello World!", player)
 </code></pre>
 
 				<h3>See Also</h3>
