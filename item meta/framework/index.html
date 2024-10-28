@@ -3001,12 +3001,12 @@ getID											</a>
 getModel											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
@@ -3049,6 +3049,11 @@ onDisposed											</a>
 											<span class="realm server"></span>
 											<a href="../../item meta/framework/#onInstanced">
 onInstanced											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../item meta/framework/#onRegistered">
+onRegistered											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
@@ -4530,7 +4535,7 @@ Think											</a>
 usually have functionality that provides more gameplay aspects to the schema.</p>
 
 <p>For an item to have an actual presence, they need to be instanced (usually by spawning them). Items describe the
-properties, while instances are a clone of these properties that can have their own unique data (e.g an ID card will have the
+properties, while instances are a clone of these properties that can have their own unique data (e.g., an ID card will have the
 same name but different numerical IDs). You can think of items as the class, while instances are objects of the <code>Item</code> class.</p>
 
 	<h1 class="title">Functions</h1>
@@ -4556,7 +4561,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Item</span></span>
 
 
-								<p> Item to compare to</p>
+								<p> The item to compare to.</p>
 							</li>
 					</ul>
 
@@ -4565,16 +4570,19 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
-								<p>Whether or not this item is equal to the given item</p>
+								<p>Whether or not this item is equal to the given item.</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>print(lia.item.instances[1] == lia.item.instances[2])
- > falsefunction ITEM:__eq(other)
+					<pre><code>if lia.item.instances[1] == lia.item.instances[2] then
+    print("Items are equal.")
+else
+    print("Items are not equal.")
+end
 </code></pre>
 
 		</section>
@@ -4593,16 +4601,16 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
-								<p>String representation</p>
+								<p>String representation.</p>
 							</li>
 
 				</ul>
 
 				<h3>Example Usage</h3>
-					<pre><code>print(lia.item.instances[1])
- > "item[1]"
+					<pre><code>print(tostring(lia.item.instances[1]))
+-- Output: "item[uniqueID][1]"
 </code></pre>
 
 		</section>
@@ -4638,7 +4646,6 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Table</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Players who should receive updates about the quantity change.</p>
 							</li>
@@ -4651,13 +4658,28 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> If true, entity checks will be skipped.</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:addQuantity(5, {player1, player2}, false)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4681,7 +4703,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The method to be called</p>
+								<p> The method to be called.</p>
 							</li>
 					</ul>
 
@@ -4693,7 +4715,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Player</span></span>
 
 
-								<p> The client to pass when calling the method, if applicable</p>
+								<p> The player to pass when calling the method, if applicable.</p>
 							</li>
 					</ul>
 
@@ -4705,7 +4727,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Entity</span></span>
 
 
-								<p> The eneity to pass when calling the method, if applicable</p>
+								<p> The entity to pass when calling the method, if applicable.</p>
 							</li>
 					</ul>
 
@@ -4717,7 +4739,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Table</span></span>
 
 
-								<p> Arguments to pass to the method</p>
+								<p> Arguments to pass to the method.</p>
 							</li>
 					</ul>
 
@@ -4726,13 +4748,16 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">any</span>
 
-								<p>The values returned by the method</p>
+								<p>The values returned by the method.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>item:call("use", player, entity, arg1, arg2)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4750,13 +4775,18 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Deferred</span>
 
-								<p>(deferred) A deferred object representing the asynchronous operation of deleting the item from the database.</p>
+								<p>A deferred object representing the asynchronous operation of deleting the item from the database.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>item:delete():next(function()
+    print("Item deleted from database.")
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4770,6 +4800,22 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:destroy()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4793,7 +4839,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The key in which the value is stored</p>
+								<p> The key in which the value is stored.</p>
 							</li>
 					</ul>
 
@@ -4802,10 +4848,10 @@ same name but different numerical IDs). You can think of items as the class, whi
 							<li>
 								<span class="tag parameter">default</span>
 
+									<span class="tag"><span class="type">any[opt]</span></span>
 
-									<span class="tag default">optional</span>
 
-								<p> The value to return in case there is no value stored in the key</p>
+								<p> The value to return in case there is no value stored in the key.</p>
 							</li>
 					</ul>
 
@@ -4814,13 +4860,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">any</span>
 
-								<p>The value stored within the key</p>
+								<p>The value stored within the key.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local health = item:getData("health", 100)
+print("Item Health:", health)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4838,13 +4888,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
-								<p>The description of the item</p>
+								<p>The description of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local desc = item:getDesc()
+print("Description:", desc)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4862,13 +4916,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">String</span>
 
-								<p>string The description of the item</p>
+								<p>The description of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local desc = item:getDesc()
+print("Item Description:", desc)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4886,13 +4944,19 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">entity</span>
+									<span class="type">Entity</span>
 
-								<p>The entity of the item</p>
+								<p>The entity of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local entity = item:getEntity()
+if entity then
+    print("Item entity exists.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4910,13 +4974,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Integer</span>
 
-								<p>Unique ID of item</p>
+								<p>Unique ID of item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local itemID = item:getID()
+print("Item ID:", itemID)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4934,37 +5002,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
-								<p>The model of the item</p>
+								<p>The model of the item.</p>
 							</li>
 
 				</ul>
 
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="getName">
-					<h1><span class="realm client"></span></span>itemMeta:getName()</h1>
-				</a>
-
-					<p>Returns the name of the item.</p>
-			</header>
-
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="tag type">any</span>
-
-								<p>string The name of the item</p>
-							</li>
-
-				</ul>
-
+				<h3>Example Usage</h3>
+					<pre><code>local model = item:getModel()
+print("Model:", model)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -4982,13 +5030,45 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">String</span>
 
-								<p>The name of the item</p>
+								<p>The name of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local name = item:getName()
+print("Item Name:", name)
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getName">
+					<h1><span class="realm client"></span></span>itemMeta:getName()</h1>
+				</a>
+
+					<p>Returns the name of the item.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">String</span>
+
+								<p>The name of the item.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local name = item:getName()
+print("Item Name:", name)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5006,13 +5086,21 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">player</span>
+									<span class="type">Player</span>
 
-								<p>Player owning this item</p>
+								<p>Player owning this item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local owner = item:getOwner()
+if owner then
+    print("Item is owned by:", owner:Nick())
+else
+    print("Item has no owner.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5030,13 +5118,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+									<span class="type">Float</span>
 
-								<p>The price of the item</p>
+								<p>The price of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local price = item:getPrice()
+print("Price:", price)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5054,13 +5146,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Integer</span>
 
-								<p>The quantity of the item</p>
+								<p>The quantity of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local qty = item:getQuantity()
+print("Quantity:", qty)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5078,13 +5174,17 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">number</span>
+									<span class="type">Integer</span>
 
-								<p>The skin of the item</p>
+								<p>The skin of the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local skin = item:getSkin()
+print("Skin:", skin)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5108,7 +5208,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The name of the hook</p>
+								<p> The name of the hook.</p>
 							</li>
 					</ul>
 
@@ -5120,11 +5220,29 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Function</span></span>
 
 
-								<p> The function to call once the event occurs</p>
+								<p> The function to call once the event occurs.</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:hook("onUse", function(item)
+    print("Item was used.")
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5183,7 +5301,6 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Table</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Additional data related to the interaction.</p>
 							</li>
@@ -5194,13 +5311,20 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Boolean</span>
 
-								<p>bool Whether the interaction was successful.</p>
+								<p>Whether the interaction was successful.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>if item:interact("use", player, entity, data) then
+    print("Interaction successful.")
+else
+    print("Interaction failed.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5214,6 +5338,24 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>function ITEM:onDisposed()
+    print("Item has been disposed.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5227,6 +5369,55 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>function ITEM:onInstanced()
+    print("Item has been instanced.")
+end
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="onRegistered">
+					<h1><span class="realm shared"></span></span>itemMeta:onRegistered()</h1>
+				</a>
+
+					<p>Gets called when the item is registered.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>function ITEM:onRegistered()
+    print("Item has been registered.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5240,6 +5431,24 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>function ITEM:onRemoved()
+    print("Item has been removed.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5253,6 +5462,24 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>function ITEM:onRestored()
+    print("Item has been restored.")
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5266,6 +5493,24 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>function ITEM:onSync(recipient)
+    print("Item has been synced with recipient:", recipient:Nick())
+end
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5289,7 +5534,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The name of the hook</p>
+								<p> The name of the hook.</p>
 							</li>
 					</ul>
 
@@ -5301,11 +5546,29 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Function</span></span>
 
 
-								<p> The function to call after the original hook was called</p>
+								<p> The function to call after the original hook was called.</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:postHook("onUse", function(item, result)
+    print("Item use post-processing.")
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5328,13 +5591,29 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">default: false</span>
 
-								<p> Whether additional detail should be printed or not(Owner, X position, Y position)</p>
+								<p> Whether additional detail should be printed or not (Owner, X position, Y position).</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:print()
+item:print(true)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5348,6 +5627,22 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:printData()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5383,7 +5678,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Boolean</span></span>
 
 
-								<p> Whether or not the item should not be fully deleted</p>
+								<p> Whether or not the item should not be fully deleted.</p>
 							</li>
 					</ul>
 
@@ -5392,13 +5687,18 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Deferred</span>
 
-								<p>Whether the item was successfully deleted or not</p>
+								<p>A deferred object representing the asynchronous operation of removing the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>item:remove():next(function()
+    print("Item removed.")
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5421,7 +5721,6 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> If true, the item is not fully deleted from the database.</p>
 							</li>
@@ -5432,19 +5731,24 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="tag type">any</span>
+									<span class="type">Deferred</span>
 
-								<p>(deferred) A deferred object representing the asynchronous operation of removing the item.</p>
+								<p>A deferred object representing the asynchronous operation of removing the item.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>item:removeFromInventory(true):next(function()
+    print("Item removed while preserving data.")
+end)
+</code></pre>
 
 		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="setData">
-					<h1><span class="realm server"></span></span>itemMeta:setData(key, value, receivers, noSave, noCheckEntity)</h1>
+					<h1><span class="realm server"></span></span>itemMeta:setData(key, value, receivers)</h1>
 				</a>
 
 					<p>Sets a key within the item's data.</p>
@@ -5462,7 +5766,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The key to store the value within</p>
+								<p> The key to store the value within.</p>
 							</li>
 					</ul>
 
@@ -5471,10 +5775,10 @@ same name but different numerical IDs). You can think of items as the class, whi
 							<li>
 								<span class="tag parameter">value</span>
 
+									<span class="tag"><span class="type">any[opt=nil]</span></span>
 
-									<span class="tag default">default: nil</span>
 
-								<p> The value to store within the key</p>
+								<p> The value to set for the key.</p>
 							</li>
 					</ul>
 
@@ -5487,37 +5791,27 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag default">default: nil</span>
 
-								<p> The players to replicate the data on</p>
+								<p> The players to replicate the data on.</p>
 							</li>
 					</ul>
 
-					<ul>
+
+				<h3>Returns</h3>
+				<ul>
 
 							<li>
-								<span class="tag parameter">noSave</span>
+									<span class="type">void</span>
 
-									<span class="tag"><span class="type">Boolean</span></span>
+								<p>
 
-									<span class="tag default">default: false</span>
-
-								<p> Whether to disable saving the data on the database or not</p>
+</p>
 							</li>
-					</ul>
 
-					<ul>
+				</ul>
 
-							<li>
-								<span class="tag parameter">noCheckEntity</span>
-
-									<span class="tag"><span class="type">Boolean</span></span>
-
-									<span class="tag default">default: false</span>
-
-								<p> Whether to disable setting the data on the entity, if applicable</p>
-							</li>
-					</ul>
-
-
+				<h3>Example Usage</h3>
+					<pre><code>item:setData("health", 100, {player1, player2}, false, false)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5552,7 +5846,6 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Table</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> Players who should receive updates about the quantity change.</p>
 							</li>
@@ -5565,13 +5858,28 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Boolean</span></span>
 
-									<span class="tag default">optional</span>
 
 								<p> If true, entity checks will be skipped.</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:setQuantity(10, {player1}, true)
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5580,7 +5888,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 					<h1><span class="realm server"></span></span>itemMeta:spawn(position, angles)</h1>
 				</a>
 
-					<p>Spawn an item entity based off the item table.</p>
+					<p>Spawns an item entity based off the item table.</p>
 			</header>
 
 
@@ -5595,7 +5903,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Vector</span></span>
 
 
-								<p> The position in which the item's entity will be spawned</p>
+								<p> The position in which the item's entity will be spawned.</p>
 							</li>
 					</ul>
 
@@ -5607,7 +5915,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 									<span class="tag"><span class="type">Angle</span></span>
 
 
-								<p> The angles at which the item's entity will spawn</p>
+								<p> The angles at which the item's entity will spawn.</p>
 							</li>
 					</ul>
 
@@ -5616,13 +5924,16 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">entity</span>
+									<span class="type">Entity</span>
 
-								<p>The spawned entity</p>
+								<p>The spawned entity.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local spawnedEntity = item:spawn(Vector(0, 0, 0), Angle(0, 90, 0))
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5645,12 +5956,30 @@ same name but different numerical IDs). You can think of items as the class, whi
 
 									<span class="tag"><span class="type">Player</span></span>
 
+									<span class="tag default">optional</span>
 
 								<p> The player to whom the item data should be synchronized. If set to nil, the data is broadcasted to all clients.</p>
 							</li>
 					</ul>
 
 
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">void</span>
+
+								<p>
+
+</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>item:sync(player)
+item:sync()
+</code></pre>
 
 		</section>
 		<section class="method">
@@ -5671,6 +6000,7 @@ same name but different numerical IDs). You can think of items as the class, whi
 							<li>
 								<span class="tag parameter">newInventory</span>
 
+									<span class="tag"><span class="type">Table</span></span>
 
 
 								<p> The inventory to which the item should be transferred.</p>
@@ -5694,13 +6024,21 @@ same name but different numerical IDs). You can think of items as the class, whi
 				<ul>
 
 							<li>
-									<span class="type">bool</span>
+									<span class="type">Boolean</span>
 
 								<p>Whether the item was successfully transferred or not.</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local success = item:transfer(targetInventory, true)
+if success then
+    print("Item transferred successfully.")
+else
+    print("Item transfer failed.")
+end
+</code></pre>
 
 		</section>
 
