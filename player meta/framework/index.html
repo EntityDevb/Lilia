@@ -4823,8 +4823,8 @@ end
 
 
 				<h3>Example Usage</h3>
-					<pre><code>player:binaryQuestion("Confirm Action", "Are you sure you want to proceed?", "Yes", "No", false, function(choice)
-    if choice == 1 then
+					<pre><code>player:binaryQuestion("Confirm Action", "Yes", "No", false, function(choice)
+    if choice == 0 then
         print("Player chose Yes.")
     else
         print("Player chose No.")
