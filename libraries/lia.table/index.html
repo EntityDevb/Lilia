@@ -1246,6 +1246,11 @@ Filter											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../libraries/lia.table/#FilterCopy">
+FilterCopy											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../libraries/lia.table/#FullCopy">
 FullCopy											</a>
 										</li>
@@ -4570,10 +4575,63 @@ Think											</a>
 		<section class="method">
 			<header>
 				<a class="anchor" id="Filter">
-					<h1><span class="realm shared"></span></span>Filter(tab, callback)</h1>
+					<h1><span class="realm shared"></span></span>Filter(tab, func)</h1>
 				</a>
 
-					<p>Filters a table based on a callback function.</p>
+					<p>Filters a table in-place based on a callback function.
+ Modifies the original table by removing elements for which the callback returns false.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">tab</span>
+
+									<span class="tag"><span class="type">Table</span></span>
+
+
+								<p> The table to filter in-place.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">func</span>
+
+									<span class="tag"><span class="type">Function</span></span>
+
+
+								<p> The function to call for each element; if it returns true, the element is kept.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="tag type">any</span>
+
+								<p>table The modified (filtered) table.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="FilterCopy">
+					<h1><span class="realm shared"></span></span>FilterCopy(tab, func)</h1>
+				</a>
+
+					<p>Creates a copy of the table with elements that pass the callback function.
+ Does not modify the original table; returns a new table containing only elements for which the callback returns true.</p>
 			</header>
 
 
@@ -4595,12 +4653,12 @@ Think											</a>
 					<ul>
 
 							<li>
-								<span class="tag parameter">callback</span>
+								<span class="tag parameter">func</span>
 
 									<span class="tag"><span class="type">Function</span></span>
 
 
-								<p> The function to call for each element; if it returns true, the element is kept.</p>
+								<p> The function to call for each element; if it returns true, the element is added to the result.</p>
 							</li>
 					</ul>
 
@@ -4611,7 +4669,7 @@ Think											</a>
 							<li>
 									<span class="tag type">any</span>
 
-								<p>table The filtered table.</p>
+								<p>table A new table containing the filtered elements.</p>
 							</li>
 
 				</ul>
