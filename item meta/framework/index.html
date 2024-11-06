@@ -5627,10 +5627,12 @@ end)
 		<section class="method">
 			<header>
 				<a class="anchor" id="setData">
-					<h1><span class="realm server"></span></span>itemMeta:setData(key, value, receivers)</h1>
+					<h1><span class="realm server"></span></span>itemMeta:setData(key, value, receivers, noSave, noCheckEntity)</h1>
 				</a>
 
-					<p>Sets a key within the item's data.</p>
+					<p>Sets a key-value pair within the item's data table.
+ This function updates the item's data and optionally synchronizes it with the entity's network variables
+ and sends the updated data to specified receivers or the item's owner.</p>
 			</header>
 
 
@@ -5645,7 +5647,7 @@ end)
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> The key to store the value within.</p>
+								<p> The key to store the value under.</p>
 							</li>
 					</ul>
 
@@ -5657,7 +5659,7 @@ end)
 									<span class="tag"><span class="type">any[opt=nil]</span></span>
 
 
-								<p> The value to set for the key.</p>
+								<p> The value to set for the key. If nil, the key is effectively removed.</p>
 							</li>
 					</ul>
 
@@ -5670,7 +5672,33 @@ end)
 
 									<span class="tag default">default: nil</span>
 
-								<p> The players to replicate the data on.</p>
+								<p> A table of players to whom the data should be sent. Defaults to the item's owner.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">noSave</span>
+
+									<span class="tag"><span class="type">Boolean</span></span>
+
+									<span class="tag default">default: false</span>
+
+								<p> If true, prevents saving the data to the database.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">noCheckEntity</span>
+
+									<span class="tag"><span class="type">Boolean</span></span>
+
+									<span class="tag default">default: false</span>
+
+								<p> If true, skips updating the network variable for the item's entity.</p>
 							</li>
 					</ul>
 
