@@ -307,6 +307,11 @@ retrieveClass											</a>
 
 										<li>
 											<span class="realm client"></span>
+											<a href="../../libraries/lia.color/#Adjust">
+Adjust											</a>
+										</li>
+										<li>
+											<span class="realm client"></span>
 											<a href="../../libraries/lia.color/#Blend">
 Blend											</a>
 										</li>
@@ -3898,6 +3903,11 @@ add											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../inventory meta/inventory/#canAdd">
+canAdd											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../inventory meta/inventory/#canItemFitInInventory">
 canItemFitInInventory											</a>
 										</li>
@@ -4561,6 +4571,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">itemTypeOrItem</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The type of the item or the item object to add.</p>
@@ -4572,6 +4583,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">xOrQuantity</span>
 
+									<span class="tag"><span class="type">Integer</span></span>
 
 
 								<p> The X position in the grid or the quantity of items to add.</p>
@@ -4583,6 +4595,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">yOrData</span>
 
+									<span class="tag"><span class="type">Integer</span></span>
 
 
 								<p> The Y position in the grid or additional data for the item.</p>
@@ -4618,6 +4631,49 @@ Think											</a>
 		</section>
 		<section class="method">
 			<header>
+				<a class="anchor" id="canAdd">
+					<h1><span class="realm shared"></span></span>inventoryMeta:canAdd(item)</h1>
+				</a>
+
+					<p>Checks if an item can fit within the inventory based on its size.
+ Verifies whether the item's width and height are within the bounds of the inventory dimensions.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">item</span>
+
+									<span class="tag"><span class="type">Table</span></span>
+
+
+								<p> The item to check. The table must include <code>width</code> and <code>height</code> properties representing the item's dimensions.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">boolean</span>
+
+								<p><code>true</code> if the item fits within the inventory dimensions, <code>false</code> otherwise.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local canFit = inventory:canAdd(item) -- Example usage: checks if `item` fits in the inventory.
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
 				<a class="anchor" id="canItemFitInInventory">
 					<h1><span class="realm shared"></span></span>inventoryMeta:canItemFitInInventory(item, x, y)</h1>
 				</a>
@@ -4634,6 +4690,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">item</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The item to check.</p>
@@ -4709,6 +4766,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">item</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The item to check.</p>
@@ -4747,6 +4805,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">testItem</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The item to check.</p>
@@ -4815,6 +4874,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">testItem</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The item to test for overlap.</p>
@@ -4850,6 +4910,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">item</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The item to check against.</p>
@@ -4888,6 +4949,7 @@ Think											</a>
 							<li>
 								<span class="tag parameter">item</span>
 
+									<span class="tag"><span class="type">Item</span></span>
 
 
 								<p> The item to find a position for.</p>

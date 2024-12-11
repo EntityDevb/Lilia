@@ -307,6 +307,11 @@ retrieveClass											</a>
 
 										<li>
 											<span class="realm client"></span>
+											<a href="../../libraries/lia.color/#Adjust">
+Adjust											</a>
+										</li>
+										<li>
+											<span class="realm client"></span>
 											<a href="../../libraries/lia.color/#Blend">
 Blend											</a>
 										</li>
@@ -3898,6 +3903,11 @@ add											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../inventory meta/inventory/#canAdd">
+canAdd											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../inventory meta/inventory/#canItemFitInInventory">
 canItemFitInInventory											</a>
 										</li>
@@ -4668,6 +4678,7 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 							<li>
 								<span class="tag parameter">client</span>
 
+									<span class="tag"><span class="type">Player</span></span>
 
 
 								<p> Player The client to give a notification to if the player could not be found.</p>
@@ -4679,9 +4690,10 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 							<li>
 								<span class="tag parameter">name</span>
 
+									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> string Search query</p>
+								<p> Search query</p>
 							</li>
 					</ul>
 
@@ -4764,7 +4776,8 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 						<div class="title">Internal</div>
 						<p>This is an internal function! You are able to use it, but you risk unintended side effects if used incorrectly.</p>
 					</div>
-					<p>Returns true if a player is allowed to run a certain command.</p>
+					<p>Checks if a player has access to execute a specific command.
+ This function determines whether a player is authorized to run a given command based on privileges, admin-only or super-admin-only restrictions, and any custom hooks.</p>
 			</header>
 
 
@@ -4779,7 +4792,7 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 									<span class="tag"><span class="type">Player</span></span>
 
 
-								<p> to check access for</p>
+								<p> The player to check access for.</p>
 							</li>
 					</ul>
 
@@ -4791,7 +4804,7 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 									<span class="tag"><span class="type">String</span></span>
 
 
-								<p> Name of the command to check access for</p>
+								<p> The name of the command to check access for.</p>
 							</li>
 					</ul>
 
@@ -4804,7 +4817,7 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 
 									<span class="tag default">optional</span>
 
-								<p> command data, if not provided, it will be fetched from <code>lia.command.list</code></p>
+								<p> table command data. If not provided, the function retrieves the data from <code>lia.command.list</code>.</p>
 							</li>
 					</ul>
 
@@ -4815,11 +4828,25 @@ restricted to certain usergroups using a <a href="https://github.com/glua/CAMI">
 							<li>
 									<span class="type">bool</span>
 
-								<p>Whether or not the player is allowed to run the command</p>
+								<p>Whether or not the player has access to the command.</p>
+							</li>
+
+							<li>
+									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+
+								<p>The privilege associated with the command.S</p>
 							</li>
 
 				</ul>
 
+				<h3>Example Usage</h3>
+					<pre><code>local canUse, privilege = lia.command.hasAccess(player, "ban")
+if canUse then
+    print("Player can run the command:", privilege)
+else
+    print("Player does not have access to the command:", privilege)
+end
+</code></pre>
 
 		</section>
 		<section class="method">

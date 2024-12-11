@@ -307,6 +307,11 @@ retrieveClass											</a>
 
 										<li>
 											<span class="realm client"></span>
+											<a href="../../libraries/lia.color/#Adjust">
+Adjust											</a>
+										</li>
+										<li>
+											<span class="realm client"></span>
 											<a href="../../libraries/lia.color/#Blend">
 Blend											</a>
 										</li>
@@ -3898,6 +3903,11 @@ add											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
+											<a href="../../inventory meta/inventory/#canAdd">
+canAdd											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
 											<a href="../../inventory meta/inventory/#canItemFitInInventory">
 canItemFitInInventory											</a>
 										</li>
@@ -4542,6 +4552,94 @@ Think											</a>
 
 	<h1 class="title">Functions</h1>
 
+		<section class="method">
+			<header>
+				<a class="anchor" id="Adjust">
+					<h1><span class="realm client"></span></span>Adjust(color, rOffset, gOffset, bOffset, aOffset)</h1>
+				</a>
+
+					<p>Adjusts the components of a color by the specified offsets.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">color</span>
+
+									<span class="tag"><span class="type">Color</span></span>
+
+
+								<p> The color to adjust (expects a table with r, g, b, and optionally a values).</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">rOffset</span>
+
+									<span class="tag"><span class="type">Float</span></span>
+
+
+								<p> The offset to apply to the red component.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">gOffset</span>
+
+									<span class="tag"><span class="type">Float</span></span>
+
+
+								<p> The offset to apply to the green component.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">bOffset</span>
+
+									<span class="tag"><span class="type">Float</span></span>
+
+
+								<p> The offset to apply to the blue component.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">aOffset</span>
+
+									<span class="tag"><span class="type">Float</span></span>
+
+									<span class="tag default">default: 0</span>
+
+								<p> The offset to apply to the alpha component (defaults to 0 if not provided).</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="tag type">any</span>
+
+								<p>table The adjusted color as a new color table.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="Blend">
