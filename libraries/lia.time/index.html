@@ -2,13 +2,13 @@
 
 <html>
 	<head>
-		<title>lia.date - Lilia Documentation</title>
+		<title>lia.time - Lilia Documentation</title>
 
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="lia.date - Lilia Documentation" />
+		<meta property="og:title" content="lia.time - Lilia Documentation" />
 		<meta property="og:site_name" content="Lilia Documentation" />
 
-			<meta property="og:description" content="Date and time handling." />
+			<meta property="og:description" content="Various useful helper functions." />
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
 		<link rel="stylesheet" href="../../ldoc.css" />
@@ -530,42 +530,6 @@ set											</a>
 									</details>
 							</li>
 							<li>
-									<details open>
-									<summary><a href="../../libraries/lia.date/">lia.date</a></summary>
-
-									<ul>
-
-
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.date/#GetFormattedDate">
-GetFormattedDate											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.date/#GetFormattedDateInGame">
-GetFormattedDateInGame											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.date/#GetPreFormattedDate">
-GetPreFormattedDate											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.date/#GetPreFormattedDateInGame">
-GetPreFormattedDateInGame											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.date/#toNumber">
-toNumber											</a>
-										</li>
-
-									</ul>
-									</details>
-							</li>
-							<li>
 									<details >
 									<summary><a href="../../libraries/lia.db/">lia.db</a></summary>
 
@@ -979,29 +943,9 @@ spawn											</a>
 AddTable											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm shared"></span>
 											<a href="../../libraries/lia.lang/#L">
 L											</a>
-										</li>
-										<li>
-											<span class="realm client"></span>
-											<a href="../../libraries/lia.lang/#L">
-L											</a>
-										</li>
-										<li>
-											<span class="realm client"></span>
-											<a href="../../libraries/lia.lang/#L2">
-L2											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../libraries/lia.lang/#L2">
-L2											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../libraries/lia.lang/#L3">
-L3											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -1184,28 +1128,8 @@ load											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
-											<a href="../../libraries/lia.module/#loadDependencies">
-loadDependencies											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.module/#loadExtras">
-loadExtras											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
 											<a href="../../libraries/lia.module/#loadFromDir">
 loadFromDir											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../libraries/lia.module/#loadPermissions">
-loadPermissions											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
-											<a href="../../libraries/lia.module/#loadWorkshop">
-loadWorkshop											</a>
 										</li>
 
 									</ul>
@@ -1224,12 +1148,12 @@ loadWorkshop											</a>
 checkBadType											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../libraries/lia.net/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../libraries/lia.net/#getNetVar">
 getNetVar											</a>
 										</li>
@@ -1283,6 +1207,92 @@ Sum											</a>
 											<span class="realm shared"></span>
 											<a href="../../libraries/lia.table/#Unique">
 Unique											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details open>
+									<summary><a href="../../libraries/lia.time/">lia.time</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#CurrentLocalTime">
+CurrentLocalTime											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#DaysBetween">
+DaysBetween											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#FormatTimestamp">
+FormatTimestamp											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#GetFormattedDate">
+GetFormattedDate											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#GetFormattedDateInGame">
+GetFormattedDateInGame											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#GetPreFormattedDate">
+GetPreFormattedDate											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#GetPreFormattedDateInGame">
+GetPreFormattedDateInGame											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#HMSToSeconds">
+HMSToSeconds											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#ParseTime">
+ParseTime											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#SecondsToDHMS">
+SecondsToDHMS											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#TimeDifference">
+TimeDifference											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#TimeSince">
+TimeSince											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#TimeUntil">
+TimeUntil											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#WeekdayName">
+WeekdayName											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../libraries/lia.time/#toNumber">
+toNumber											</a>
 										</li>
 
 									</ul>
@@ -2776,12 +2786,12 @@ checkDoorAccess											</a>
 getDoorOwner											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../entity meta/doors/#getDoorPartner">
 getDoorPartner											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../entity meta/doors/#getDoorPartner">
 getDoorPartner											</a>
 										</li>
@@ -2843,8 +2853,8 @@ setLocked											</a>
 
 										<li>
 											<span class="realm server"></span>
-											<a href="../../entity meta/framework/#assignCreator">
-assignCreator											</a>
+											<a href="../../entity meta/framework/#SetCreator">
+SetCreator											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -2862,12 +2872,12 @@ clearNetVars											</a>
 getEntItemDropPos											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
@@ -3016,12 +3026,12 @@ getID											</a>
 getModel											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
@@ -3180,6 +3190,42 @@ restoreStamina											</a>
 							</li>
 							<li>
 									<details >
+									<summary><a href="../../player meta/darkrp/">DarkRP</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../player meta/darkrp/#addMoney">
+addMoney											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../player meta/darkrp/#canAfford">
+canAfford											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../player meta/darkrp/#getDarkRPVar">
+getDarkRPVar											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../player meta/darkrp/#getMoney">
+getMoney											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../player meta/darkrp/#takeMoney">
+takeMoney											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
 									<summary><a href="../../player meta/framework/">Framework</a></summary>
 
 									<ul>
@@ -3201,19 +3247,14 @@ Name											</a>
 PlaySound											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../player meta/framework/#addMoney">
-addMoney											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#binaryQuestion">
 binaryQuestion											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../player meta/framework/#canAfford">
-canAfford											</a>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#chatNotify">
+chatNotify											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
@@ -3222,16 +3263,11 @@ chatNotify											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#chatNotify">
-chatNotify											</a>
-										</li>
-										<li>
-											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
@@ -3272,11 +3308,6 @@ getCurrentVehicle											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
-											<a href="../../player meta/framework/#getDarkRPVar">
-getDarkRPVar											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
 											<a href="../../player meta/framework/#getEyeEnt">
 getEyeEnt											</a>
 										</li>
@@ -3304,11 +3335,6 @@ getLiliaData											</a>
 											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getLiliaData">
 getLiliaData											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../player meta/framework/#getMoney">
-getMoney											</a>
 										</li>
 										<li>
 											<span class="realm client"></span>
@@ -3481,11 +3507,6 @@ setRagdolled											</a>
 setWeighPoint											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
-											<a href="../../player meta/framework/#setWeighPoint">
-setWeighPoint											</a>
-										</li>
-										<li>
 											<span class="realm shared"></span>
 											<a href="../../player meta/framework/#squaredDistanceFromEnt">
 squaredDistanceFromEnt											</a>
@@ -3499,11 +3520,6 @@ stopAction											</a>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#syncVars">
 syncVars											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../player meta/framework/#takeMoney">
-takeMoney											</a>
 										</li>
 
 									</ul>
@@ -4547,16 +4563,130 @@ Think											</a>
 			<article>
 					<div class="wrapper">
 						<header class="module">
-	<h1>lia.date</h1>
-	<h2>Date and time handling.</h2>
+	<h1>lia.time</h1>
+	<h2>Various useful helper functions.</h2>
 </header>
 
-<p>All of Lua's time functions are dependent on the Unix epoch, which means we can't have dates that go further than 1970. This
-library remedies this problem. Time/date is represented by a <code>date</code> object that is queried, instead of relying on the seconds
-since the epoch.</p>
+<p>
+
+</p>
 
 	<h1 class="title">Functions</h1>
 
+		<section class="method">
+			<header>
+				<a class="anchor" id="CurrentLocalTime">
+					<h1><span class="realm shared"></span></span>CurrentLocalTime()</h1>
+				</a>
+
+					<p>Returns the current local time in "HH:MM:SS - DD/MM/YYYY" format.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+
+								<p>The current local time string.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="DaysBetween">
+					<h1><span class="realm shared"></span></span>DaysBetween(strTime1, strTime2)</h1>
+				</a>
+
+					<p>Calculates the number of days between two dates (ignoring time of day).</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime1</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> A time string "HH:MM:SS - DD/MM/YYYY"</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime2</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> A time string "HH:MM:SS - DD/MM/YYYY"</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">number</span> or <span class="type">nil</span>
+
+								<p>The number of days between the two dates, or a string error message.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="FormatTimestamp">
+					<h1><span class="realm shared"></span></span>FormatTimestamp(timestamp)</h1>
+				</a>
+
+					<p>Formats a UNIX timestamp into "HH:MM:SS - DD/MM/YYYY".</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">timestamp</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+
+								<p> A UNIX timestamp.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+
+								<p>The formatted time string.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="GetFormattedDate">
@@ -4995,6 +5125,361 @@ since the epoch.</p>
 									<span class="tag type">any</span>
 
 								<p>string The formatted date string.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="HMSToSeconds">
+					<h1><span class="realm shared"></span></span>HMSToSeconds(hour, minute, second)</h1>
+				</a>
+
+					<p>Converts hours, minutes, and seconds into a total number of seconds.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">hour</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+
+								<p> The hour component.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">minute</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+
+								<p> The minute component.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">second</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+
+								<p> The second component.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>The total number of seconds.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="ParseTime">
+					<h1><span class="realm shared"></span></span>ParseTime(strTime)</h1>
+				</a>
+
+					<p>Parses a time string ("HH:MM:SS - DD/MM/YYYY") into numeric components.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The time string.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>year The parsed year</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>month The parsed month</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>day The parsed day</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>hour The parsed hour</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>minute The parsed minute</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>second The parsed second</p>
+							</li>
+
+							<div class="or"><span>OR</span></div>
+
+							<li>
+									<span class="type">nil</span>
+
+								<p>If parsing fails</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="SecondsToDHMS">
+					<h1><span class="realm shared"></span></span>SecondsToDHMS(seconds)</h1>
+				</a>
+
+					<p>Converts a number of seconds into days, hours, minutes, and seconds.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">seconds</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+
+								<p> The total number of seconds.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>Days</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>Hours</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>Minutes</p>
+							</li>
+
+							<li>
+									<span class="type">number</span>
+
+								<p>Seconds</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="TimeDifference">
+					<h1><span class="realm shared"></span></span>TimeDifference(strTime)</h1>
+				</a>
+
+					<p>Calculates the time difference in days between the given date and the current date.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> A time string in the format "HH:MM:SS - DD/MM/YYYY".</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">number</span> or <span class="type">nil</span>
+
+								<p>The difference in days between the given date and the current date, or nil if the input is invalid.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="TimeSince">
+					<h1><span class="realm shared"></span></span>TimeSince(strTime)</h1>
+				</a>
+
+					<p>Returns the amount of time passed since the given time.
+ Expected format of <code>strTime</code>: "HH:MM:SS - DD/MM/YYYY"</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> A time string in the specified format.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+
+								<p>A human-readable string indicating years, months, days, hours, minutes, and seconds passed.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="TimeUntil">
+					<h1><span class="realm shared"></span></span>TimeUntil(strTime)</h1>
+				</a>
+
+					<p>Returns the amount of time until the given time.
+ Expected format of <code>strTime</code>: "HH:MM:SS - DD/MM/YYYY"</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> A time string in the specified format.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+
+								<p>A human-readable string indicating years, months, days, hours, minutes, and seconds remaining.</p>
+							</li>
+
+				</ul>
+
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="WeekdayName">
+					<h1><span class="realm shared"></span></span>WeekdayName(strTime)</h1>
+				</a>
+
+					<p>Returns the name of the weekday for the given date/time.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">strTime</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> A time string "HH:MM:SS - DD/MM/YYYY"</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<a class="type" href="https://www.lua.org/manual/5.2/manual.html#6.4">string</a>
+
+								<p>The weekday name, or "Invalid date" if invalid.</p>
 							</li>
 
 				</ul>

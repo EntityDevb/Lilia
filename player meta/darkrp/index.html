@@ -2,13 +2,13 @@
 
 <html>
 	<head>
-		<title>Addons with Improved Compatibility - Lilia Documentation</title>
+		<title>DarkRP - Lilia Documentation</title>
 
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Addons with Improved Compatibility - Lilia Documentation" />
+		<meta property="og:title" content="DarkRP - Lilia Documentation" />
 		<meta property="og:site_name" content="Lilia Documentation" />
 
-			<meta property="og:description" content="" />
+			<meta property="og:description" content="A library of DarkRP compatibility functions." />
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
 		<link rel="stylesheet" href="../../ldoc.css" />
@@ -1148,12 +1148,12 @@ loadFromDir											</a>
 checkBadType											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../libraries/lia.net/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../libraries/lia.net/#getNetVar">
 getNetVar											</a>
 										</li>
@@ -2786,12 +2786,12 @@ checkDoorAccess											</a>
 getDoorOwner											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../entity meta/doors/#getDoorPartner">
 getDoorPartner											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../entity meta/doors/#getDoorPartner">
 getDoorPartner											</a>
 										</li>
@@ -2872,12 +2872,12 @@ clearNetVars											</a>
 getEntItemDropPos											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
@@ -3026,12 +3026,12 @@ getID											</a>
 getModel											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
@@ -3189,7 +3189,7 @@ restoreStamina											</a>
 									</details>
 							</li>
 							<li>
-									<details >
+									<details open>
 									<summary><a href="../../player meta/darkrp/">DarkRP</a></summary>
 
 									<ul>
@@ -3262,12 +3262,12 @@ chatNotify											</a>
 chatNotify											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
@@ -3447,12 +3447,12 @@ notifyP											</a>
 openPage											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
 										</li>
@@ -4523,7 +4523,7 @@ Think											</a>
 
 					<ul>
 							<li>
-									<details open>
+									<details >
 									<summary><a href="../../information/compatibility/">Addons with Improved Compatibility</a></summary>
 
 									<ul>
@@ -4562,128 +4562,203 @@ Think											</a>
 
 			<article>
 					<div class="wrapper">
+						<header class="module">
+	<h1>DarkRP</h1>
+	<h2>A library of DarkRP compatibility functions.</h2>
+</header>
 
-<h1>Addons with Improved Compatibility</h1>
+<p>
 
-<p><a name="Prone_Mod"></a></p>
-<h2>Prone Mod</h2>
+</p>
 
-<ul>
-    <li><p>Addon URL: <a href="https://github.com/gspetrou/Prone-Mod">Prone Mod</a></p></li>
-    <li><p>Compatibility Added: Made animations reset at proper times.</p></li>
-</ul>
+	<h1 class="title">Functions</h1>
 
-<p><a name="ULX"></a></p>
-<h2>ULX</h2>
+		<section class="method">
+			<header>
+				<a class="anchor" id="addMoney">
+					<h1><span class="realm shared"></span></span>playerMeta:addMoney(amount)</h1>
+				</a>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=557962280">ULX</a></p></li>
-    <li><p>Compatibility Added: Removed obsolete hooks.</p></li>
-</ul>
+					<p>Adds money to Adds money to the player's character.
+ This function uses Lilia methods to add the specified amount of money to the player.
+ It handles wallet limits and spawns excess money as an item in the world if necessary.</p>
+			</header>
 
-<p><a name="SAM"></a></p>
-<h2>SAM</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://www.gmodstore.com/market/view/sam">SAM</a></p></li>
-    <li><p>Compatibility Added: Implemented an auto administrator setter and fixed prop limits to work with SAM.</p></li>
-</ul>
+					<h3>Parameters</h3>
 
-<p><a name="Serverguard"></a></p>
-<h2>Serverguard</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://www.gmodstore.com/market/view/serverguard">Serverguard</a></p></li>
-    <li><p>Compatibility Added: Allowed CAMI (permissions system) to work with Lilia and Serverguard.</p></li>
-</ul>
+					<ul>
 
-<p><a name="Advanced_Dupe_2"></a></p>
-<h2>Advanced Dupe 2</h2>
+							<li>
+								<span class="tag parameter">amount</span>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=773402917">Advanced Dupe 2</a></p></li>
-    <li><p>Compatibility Added: Fixed several crashing exploits.</p></li>
-</ul>
+									<span class="tag"><span class="type">Integer</span></span>
 
-<p><a name="Advanced_Dupe_1"></a></p>
-<h2>Advanced Dupe 1</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=163806212">Advanced Dupe 1</a></p></li>
-    <li><p>Compatibility Added: Fixed several crashing exploits.</p></li>
-</ul>
+								<p> The amount of money to add.</p>
+							</li>
+					</ul>
 
-<p><a name="PermaProps"></a></p>
-<h2>PermaProps</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=220336312">PermaProps</a></p></li>
-    <li><p>Compatibility Added: Removed the ability to PermaProp certain restricted entities.</p></li>
-</ul>
+				<h3>Example Usage</h3>
+					<pre><code>player:addMoney(1000)
+</code></pre>
 
-<p><a name="PAC3"></a></p>
-<h2>PAC3</h2>
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="canAfford">
+					<h1><span class="realm shared"></span></span>playerMeta:canAfford(amount)</h1>
+				</a>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/workshop/filedetails/?id=104691717">PAC3</a></p></li>
-    <li><p>Compatibility Added: Restricted PAC to a flag and permission, and made it reset when needed.</p></li>
-</ul>
+					<p>Checks if the player's character can afford a specified amount of money.
+ This function uses Lilia methods to determine if the player can afford the specified amount.
+ It is designed to be compatible with the DarkRP <a href="../../player meta/darkrp/#canAfford">canAfford</a> method.</p>
+			</header>
 
-<p><a name="Simfphys_Vehicles"></a></p>
-<h2>Simfphys Vehicles</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=771487490">Simfphys Vehicles</a></p></li>
-    <li><p>Compatibility Added: Added car crash damage and implemented some console commands for performance.</p></li>
-</ul>
+					<h3>Parameters</h3>
 
-<p><a name="Sit_Anywhere"></a></p>
-<h2>Sit Anywhere</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=108176967">Sit Anywhere</a></p></li>
-    <li><p>Compatibility Added: Removed the ability to sit on certain mingy locations and added damage on seats by default.</p></li>
-</ul>
+					<ul>
 
-<p><a name="Stormfox_2"></a></p>
-<h2>Stormfox 2</h2>
+							<li>
+								<span class="tag parameter">amount</span>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/workshop/filedetails/?id=2447774443">Stormfox 2</a></p></li>
-    <li><p>Compatibility Added: Improved SF2 lighting reload.</p></li>
-</ul>
+									<span class="tag"><span class="type">Integer</span></span>
 
-<p><a name="3D_Stream_Radio"></a></p>
-<h2>3D Stream Radio</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=246756300">3D Stream Radio</a></p></li>
-    <li><p>Compatibility Added: Added ability for radios to save on the map.</p></li>
-</ul>
+								<p> The amount of money to check.</p>
+							</li>
+					</ul>
 
-<p><a name="VCMod"></a></p>
-<h2>VCMod</h2>
 
-<ul>
-    <li><p>Addon URL: <a href="https://www.gmodstore.com/market/view/vcmod-main">VCMod Main</a></p></li>
-    <li><p>Compatibility Added: Added monetary compatibility.</p></li>
-</ul>
+				<h3>Returns</h3>
+				<ul>
 
-<p><a name="VJBase"></a></p>
-<h2>VJBase</h2>
+							<li>
+									<span class="type">Boolean</span>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/workshop/filedetails/?id=131759821">VJBase</a></p></li>
-    <li><p>Compatibility Added: Made the server enable certain settings by default, improving performance, and removed some harmful hooks.</p></li>
-</ul>
+								<p>Whether the player's character can afford the specified amount of money.</p>
+							</li>
 
-<p><a name="VManip"></a></p>
-<h2>VManip</h2>
+				</ul>
 
-<ul>
-    <li><p>Addon URL: <a href="https://steamcommunity.com/workshop/filedetails/?id=2155366756">VManip</a></p></li>
-    <li><p>Compatibility Added: Allows for item pickups to have VManip Animations.</p></li>
-</ul>
+				<h3>Example Usage</h3>
+					<pre><code>if player:canAfford(500) then
+    print("Player can afford the item.")
+else
+    print("Player cannot afford the item.")
+end
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getDarkRPVar">
+					<h1><span class="realm shared"></span></span>playerMeta:getDarkRPVar(var)</h1>
+				</a>
+
+					<p>Retrieves the player's DarkRP money.
+ This is used as compatibility for DarkRP Vars.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">var</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The DarkRP variable to fetch (only "money" is allowed).</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">Integer</span> or <span class="type">nil</span>
+
+								<p>The player's money if the variable is valid, or nil if not.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local money = player:getDarkRPVar("money")
+if money then
+    print("Player Money:", money)
+end
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getMoney">
+					<h1><span class="realm shared"></span></span>playerMeta:getMoney()</h1>
+				</a>
+
+					<p>Retrieves the amount of money owned by the player's character.</p>
+			</header>
+
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">Integer</span>
+
+								<p>The amount of money owned by the player's character.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local money = player:getMoney()
+print("Player Money:", money)
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="takeMoney">
+					<h1><span class="realm shared"></span></span>playerMeta:takeMoney(amount)</h1>
+				</a>
+
+					<p>Takes money from the player's character.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">amount</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+
+								<p> The amount of money to take.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:takeMoney(200)
+</code></pre>
+
+		</section>
 
 					</div>
 			</article>
