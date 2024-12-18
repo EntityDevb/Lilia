@@ -2857,11 +2857,6 @@ setLocked											</a>
 SetCreator											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#canSeeEntity">
-canSeeEntity											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#clearNetVars">
 clearNetVars											</a>
@@ -2872,39 +2867,14 @@ clearNetVars											</a>
 getEntItemDropPos											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
-											<a href="../../entity meta/framework/#getNetVar">
-getNetVar											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#getViewAngle">
-getViewAngle											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inFov">
-inFov											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inTrace">
-inTrace											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isChair">
-isChair											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isInRoom">
-isInRoom											</a>
+											<span class="realm client"></span>
+											<a href="../../entity meta/framework/#getNetVar">
+getNetVar											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -2925,11 +2895,6 @@ isNearEntity											</a>
 											<span class="realm shared"></span>
 											<a href="../../entity meta/framework/#isProp">
 isProp											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isScreenVisible">
-isScreenVisible											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -3243,11 +3208,6 @@ Name											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#PlaySound">
-PlaySound											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
 											<a href="../../player meta/framework/#binaryQuestion">
 binaryQuestion											</a>
 										</li>
@@ -3262,12 +3222,12 @@ chatNotify											</a>
 chatNotify											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
@@ -3337,12 +3297,12 @@ getLiliaData											</a>
 getLiliaData											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3455,6 +3415,11 @@ openUI											</a>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#playSound">
+playSound											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4053,11 +4018,6 @@ CreateConVars											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
-											<a href="../../tool meta/framework/#CustomLogic">
-CustomLogic											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Deploy">
 Deploy											</a>
 										</li>
@@ -4607,52 +4567,6 @@ between Lilia's own classes and to reduce boilerplate code.</p>
 		</section>
 		<section class="method">
 			<header>
-				<a class="anchor" id="canSeeEntity">
-					<h1><span class="realm shared"></span></span>entityMeta:canSeeEntity(entity)</h1>
-				</a>
-
-					<p>Checks if the entity can see another entity.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">entity</span>
-
-									<span class="tag"><span class="type">Entity</span></span>
-
-
-								<p> The entity to check visibility against.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Boolean</span>
-
-								<p>True if the entity can see the target entity, false otherwise.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>if entity:canSeeEntity(targetEntity) then
-    print("Entity can see the target entity.")
-else
-    print("Entity cannot see the target entity.")
-end
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
 				<a class="anchor" id="clearNetVars">
 					<h1><span class="realm server"></span></span>entityMeta:clearNetVars(receiver)</h1>
 				</a>
@@ -4830,226 +4744,6 @@ print(example) -- Output: "Hello World!" or "Default Value"
 		</section>
 		<section class="method">
 			<header>
-				<a class="anchor" id="getViewAngle">
-					<h1><span class="realm shared"></span></span>entityMeta:getViewAngle(pos)</h1>
-				</a>
-
-					<p>Gets the view angle between the entity and a specified position.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">pos</span>
-
-									<span class="tag"><span class="type">Vector</span></span>
-
-
-								<p> The position to calculate the view angle towards.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">The</span>
-
-								<p>view angle in degrees.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>local angle = entity:getViewAngle(targetPos)
-print("View angle:", angle)
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="inFov">
-					<h1><span class="realm shared"></span></span>entityMeta:inFov(entity, fov)</h1>
-				</a>
-
-					<p>Checks if the entity is within the field of view of another entity.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">entity</span>
-
-									<span class="tag"><span class="type">Entity</span></span>
-
-
-								<p> to check the field of view against.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">fov</span>
-
-									<span class="tag"><span class="type">Float</span></span>
-
-
-								<p> The field of view angle in degrees.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Boolean</span>
-
-								<p>True if the entity is within the field of view, false otherwise.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>if entity:inFov(playerEntity, 90) then
-    print("Entity is within the player's field of view.")
-end
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="inTrace">
-					<h1><span class="realm shared"></span></span>entityMeta:inTrace(entity)</h1>
-				</a>
-
-					<p>Checks if the entity is in line of sight of another entity.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">entity</span>
-
-									<span class="tag"><span class="type">Entity</span></span>
-
-
-								<p> The entity to check line of sight against.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Boolean</span>
-
-								<p>True if the entity is in line of sight, false otherwise.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>if entity:inTrace(targetEntity) then
-    print("Entity is in line of sight of the target.")
-else
-    print("Entity is not in line of sight of the target.")
-end
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="isChair">
-					<h1><span class="realm shared"></span></span>entityMeta:isChair()</h1>
-				</a>
-
-					<p>Checks if the entity is a chair.</p>
-			</header>
-
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Boolean</span>
-
-								<p>True if the entity is a chair, false otherwise.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>if entity:isChair() then
-    print("Entity is a chair.")
-end
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="isInRoom">
-					<h1><span class="realm shared"></span></span>entityMeta:isInRoom(target)</h1>
-				</a>
-
-					<p>Checks if the entity is inside a room (i.e., not blocked by world geometry) with another target entity.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">target</span>
-
-									<span class="tag"><span class="type">Entity</span></span>
-
-
-								<p> The target entity to check for room visibility.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Boolean</span>
-
-								<p>True if the entity is in the same room as the target entity, false otherwise.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>if entity:isInRoom(targetEntity) then
-    print("Entities are in the same room.")
-else
-    print("Entities are not in the same room.")
-end
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
 				<a class="anchor" id="isItem">
 					<h1><span class="realm shared"></span></span>entityMeta:isItem()</h1>
 				</a>
@@ -5179,74 +4873,6 @@ end
     print("Entity is a physics prop.")
 else
     print("Entity is not a physics prop.")
-end
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="isScreenVisible">
-					<h1><span class="realm shared"></span></span>entityMeta:isScreenVisible(entity, maxDist, fov)</h1>
-				</a>
-
-					<p>Checks if the entity has a clear line of sight to another entity and is within a specified distance and field of view angle.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">entity</span>
-
-									<span class="tag"><span class="type">Entity</span></span>
-
-
-								<p> The entity to check visibility against.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">maxDist</span>
-
-									<span class="tag"><span class="type">Float</span></span>
-
-
-								<p> The maximum distance squared within which the entity can see the other entity.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">fov</span>
-
-									<span class="tag"><span class="type">Float</span></span>
-
-
-								<p> The field of view angle in degrees.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">Boolean</span>
-
-								<p>True if the entity has a clear line of sight to the other entity within the specified distance and field of view angle, false otherwise.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>if entity:isScreenVisible(targetEntity, 300000, 90) then
-    print("Entity is visible on the screen.")
 end
 </code></pre>
 

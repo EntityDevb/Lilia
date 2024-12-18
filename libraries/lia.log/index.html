@@ -2857,11 +2857,6 @@ setLocked											</a>
 SetCreator											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#canSeeEntity">
-canSeeEntity											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#clearNetVars">
 clearNetVars											</a>
@@ -2872,39 +2867,14 @@ clearNetVars											</a>
 getEntItemDropPos											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
-											<a href="../../entity meta/framework/#getNetVar">
-getNetVar											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#getViewAngle">
-getViewAngle											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inFov">
-inFov											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inTrace">
-inTrace											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isChair">
-isChair											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isInRoom">
-isInRoom											</a>
+											<span class="realm client"></span>
+											<a href="../../entity meta/framework/#getNetVar">
+getNetVar											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -2925,11 +2895,6 @@ isNearEntity											</a>
 											<span class="realm shared"></span>
 											<a href="../../entity meta/framework/#isProp">
 isProp											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isScreenVisible">
-isScreenVisible											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -3243,11 +3208,6 @@ Name											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#PlaySound">
-PlaySound											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
 											<a href="../../player meta/framework/#binaryQuestion">
 binaryQuestion											</a>
 										</li>
@@ -3262,12 +3222,12 @@ chatNotify											</a>
 chatNotify											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
@@ -3337,12 +3297,12 @@ getLiliaData											</a>
 getLiliaData											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3455,6 +3415,11 @@ openUI											</a>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#playSound">
+playSound											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4053,11 +4018,6 @@ CreateConVars											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
-											<a href="../../tool meta/framework/#CustomLogic">
-CustomLogic											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Deploy">
 Deploy											</a>
 										</li>
@@ -4569,15 +4529,6 @@ Think											</a>
 
 <p>
 
-
-<p>Predefined flags:</p>
-<pre><code>FLAG_NORMAL
-FLAG_SUCCESS
-FLAG_WARNING
-FLAG_DANGER
-FLAG_SERVER
-FLAG_DEV
-</code></pre>
 </p>
 
 	<h1 class="title">Functions</h1>
@@ -4637,7 +4588,7 @@ FLAG_DEV
 		<section class="method">
 			<header>
 				<a class="anchor" id="addRaw">
-					<h1><span class="realm server"></span></span>addRaw(logString, shouldNotify, flag)</h1>
+					<h1><span class="realm server"></span></span>addRaw(logString)</h1>
 				</a>
 
 					<p>Adds a raw log string to the log system and optionally notifies admins.</p>
@@ -4659,38 +4610,13 @@ FLAG_DEV
 							</li>
 					</ul>
 
-					<ul>
-
-							<li>
-								<span class="tag parameter">shouldNotify</span>
-
-									<span class="tag"><span class="type">Boolean</span></span>
-
-
-								<p> Whether to notify admins about this log (default: false)</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">flag</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-									<span class="tag default">optional</span>
-
-								<p> The flag associated with the log</p>
-							</li>
-					</ul>
-
 
 
 		</section>
 		<section class="method">
 			<header>
 				<a class="anchor" id="addType">
-					<h1><span class="realm server"></span></span>addType(logType, func, category, color, PLogs)</h1>
+					<h1><span class="realm server"></span></span>addType(logType, func, category, color)</h1>
 				</a>
 
 					<p>Adds a log type.</p>
@@ -4746,18 +4672,6 @@ FLAG_DEV
 									<span class="tag default">optional</span>
 
 								<p> Log color</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">PLogs</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> PLogs PLogs compatibility category</p>
 							</li>
 					</ul>
 
@@ -4854,7 +4768,7 @@ FLAG_DEV
 		<section class="method">
 			<header>
 				<a class="anchor" id="send">
-					<h1><span class="realm server"></span></span>send(client, logString, flag)</h1>
+					<h1><span class="realm server"></span></span>send(client, logString)</h1>
 				</a>
 
 					<div class="notice error">
@@ -4889,19 +4803,6 @@ FLAG_DEV
 
 
 								<p> The log message to be sent.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">flag</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-									<span class="tag default">optional</span>
-
-								<p> A flag associated with the log message.</p>
 							</li>
 					</ul>
 

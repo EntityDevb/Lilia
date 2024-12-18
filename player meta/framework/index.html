@@ -2857,11 +2857,6 @@ setLocked											</a>
 SetCreator											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#canSeeEntity">
-canSeeEntity											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#clearNetVars">
 clearNetVars											</a>
@@ -2872,39 +2867,14 @@ clearNetVars											</a>
 getEntItemDropPos											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
-											<a href="../../entity meta/framework/#getNetVar">
-getNetVar											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#getViewAngle">
-getViewAngle											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inFov">
-inFov											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inTrace">
-inTrace											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isChair">
-isChair											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isInRoom">
-isInRoom											</a>
+											<span class="realm client"></span>
+											<a href="../../entity meta/framework/#getNetVar">
+getNetVar											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -2925,11 +2895,6 @@ isNearEntity											</a>
 											<span class="realm shared"></span>
 											<a href="../../entity meta/framework/#isProp">
 isProp											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isScreenVisible">
-isScreenVisible											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -3243,11 +3208,6 @@ Name											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#PlaySound">
-PlaySound											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
 											<a href="../../player meta/framework/#binaryQuestion">
 binaryQuestion											</a>
 										</li>
@@ -3262,12 +3222,12 @@ chatNotify											</a>
 chatNotify											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
@@ -3337,12 +3297,12 @@ getLiliaData											</a>
 getLiliaData											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3455,6 +3415,11 @@ openUI											</a>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#playSound">
+playSound											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4053,11 +4018,6 @@ CreateConVars											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
-											<a href="../../tool meta/framework/#CustomLogic">
-CustomLogic											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#Deploy">
 Deploy											</a>
 										</li>
@@ -4648,75 +4608,6 @@ end
 
 				<h3>Example Usage</h3>
 					<pre><code>print("Player Name:", player:Name())
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="PlaySound">
-					<h1><span class="realm server"></span></span>playerMeta:PlaySound(sound, volume, pitch, shouldEmit)</h1>
-				</a>
-
-					<p>Plays a sound for the player.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">sound</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The sound to play.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">volume</span>
-
-									<span class="tag"><span class="type">Integer</span></span>
-
-									<span class="tag default">default: 75</span>
-
-								<p> The volume of the sound.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">pitch</span>
-
-									<span class="tag"><span class="type">Integer</span></span>
-
-									<span class="tag default">default: 100</span>
-
-								<p> The pitch of the sound.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">shouldEmit</span>
-
-									<span class="tag"><span class="type">Boolean</span></span>
-
-
-								<p> Whether to emit sound server-side or send it to the client.</p>
-							</li>
-					</ul>
-
-
-				<h3>Example Usage</h3>
-					<pre><code>player:PlaySound("ambient/alarms/warningbell1.wav", 100, 100, false)
 </code></pre>
 
 		</section>
@@ -5566,7 +5457,7 @@ print("Playtime:", playTime, "seconds")
 		<section class="method">
 			<header>
 				<a class="anchor" id="getPlayTime">
-					<h1><span class="realm server"></span></span>playerMeta:getPlayTime()</h1>
+					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
 				</a>
 
 					<p>Retrieves the player's total playtime.</p>
@@ -5594,7 +5485,7 @@ print("Playtime:", playTime, "seconds")
 		<section class="method">
 			<header>
 				<a class="anchor" id="getPlayTime">
-					<h1><span class="realm client"></span></span>playerMeta:getPlayTime()</h1>
+					<h1><span class="realm server"></span></span>playerMeta:getPlayTime()</h1>
 				</a>
 
 					<p>Retrieves the player's total playtime.</p>
@@ -6130,7 +6021,7 @@ end)
 		<section class="method">
 			<header>
 				<a class="anchor" id="notifyP">
-					<h1><span class="realm server"></span></span>playerMeta:notifyP(message)</h1>
+					<h1><span class="realm server"></span></span>playerMeta:notifyP(text)</h1>
 				</a>
 
 					<p>Notifies the player with a message and prints the message to their chat.</p>
@@ -6143,7 +6034,7 @@ end)
 					<ul>
 
 							<li>
-								<span class="tag parameter">message</span>
+								<span class="tag parameter">text</span>
 
 									<span class="tag"><span class="type">String</span></span>
 
@@ -6161,7 +6052,7 @@ end)
 		<section class="method">
 			<header>
 				<a class="anchor" id="notifyP">
-					<h1><span class="realm server"></span></span>playerMeta:notifyP(text)</h1>
+					<h1><span class="realm server"></span></span>playerMeta:notifyP(message)</h1>
 				</a>
 
 					<p>Notifies the player with a message and prints the message to their chat.</p>
@@ -6174,7 +6065,7 @@ end)
 					<ul>
 
 							<li>
-								<span class="tag parameter">text</span>
+								<span class="tag parameter">message</span>
 
 									<span class="tag"><span class="type">String</span></span>
 
@@ -6223,37 +6114,6 @@ end)
 		<section class="method">
 			<header>
 				<a class="anchor" id="openUI">
-					<h1><span class="realm server"></span></span>playerMeta:openUI(panel)</h1>
-				</a>
-
-					<p>Opens a VGUI panel for the player.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">panel</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The name of the VGUI panel to open.</p>
-							</li>
-					</ul>
-
-
-				<h3>Example Usage</h3>
-					<pre><code>player:openUI("InventoryPanel")
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="openUI">
 					<h1><span class="realm client"></span></span>playerMeta:openUI(panel)</h1>
 				</a>
 
@@ -6290,6 +6150,106 @@ end)
 
 				<h3>Example Usage</h3>
 					<pre><code>local inventoryPanel = player:openUI("InventoryPanel")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="openUI">
+					<h1><span class="realm server"></span></span>playerMeta:openUI(panel)</h1>
+				</a>
+
+					<p>Opens a VGUI panel for the player.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">panel</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The name of the VGUI panel to open.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:openUI("InventoryPanel")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="playSound">
+					<h1><span class="realm server"></span></span>playerMeta:playSound(sound, volume, pitch, shouldEmit)</h1>
+				</a>
+
+					<p>Plays a sound for the player.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">sound</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The sound to play.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">volume</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+									<span class="tag default">default: 75</span>
+
+								<p> The volume of the sound.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">pitch</span>
+
+									<span class="tag"><span class="type">Integer</span></span>
+
+									<span class="tag default">default: 100</span>
+
+								<p> The pitch of the sound.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">shouldEmit</span>
+
+									<span class="tag"><span class="type">Boolean</span></span>
+
+
+								<p> Whether to emit sound server-side or send it to the client.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:playSound("ambient/alarms/warningbell1.wav", 100, 100, false)
 </code></pre>
 
 		</section>

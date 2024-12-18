@@ -2857,11 +2857,6 @@ setLocked											</a>
 SetCreator											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#canSeeEntity">
-canSeeEntity											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#clearNetVars">
 clearNetVars											</a>
@@ -2872,39 +2867,14 @@ clearNetVars											</a>
 getEntItemDropPos											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
-											<a href="../../entity meta/framework/#getNetVar">
-getNetVar											</a>
-										</li>
-										<li>
 											<span class="realm server"></span>
 											<a href="../../entity meta/framework/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#getViewAngle">
-getViewAngle											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inFov">
-inFov											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#inTrace">
-inTrace											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isChair">
-isChair											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isInRoom">
-isInRoom											</a>
+											<span class="realm client"></span>
+											<a href="../../entity meta/framework/#getNetVar">
+getNetVar											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -2925,11 +2895,6 @@ isNearEntity											</a>
 											<span class="realm shared"></span>
 											<a href="../../entity meta/framework/#isProp">
 isProp											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../entity meta/framework/#isScreenVisible">
-isScreenVisible											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -3243,11 +3208,6 @@ Name											</a>
 										</li>
 										<li>
 											<span class="realm server"></span>
-											<a href="../../player meta/framework/#PlaySound">
-PlaySound											</a>
-										</li>
-										<li>
-											<span class="realm server"></span>
 											<a href="../../player meta/framework/#binaryQuestion">
 binaryQuestion											</a>
 										</li>
@@ -3262,12 +3222,12 @@ chatNotify											</a>
 chatNotify											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatNotifyLocalized">
 chatNotifyLocalized											</a>
 										</li>
@@ -3337,12 +3297,12 @@ getLiliaData											</a>
 getLiliaData											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getPlayTime">
 getPlayTime											</a>
 										</li>
@@ -3455,6 +3415,11 @@ openUI											</a>
 											<span class="realm server"></span>
 											<a href="../../player meta/framework/#openUI">
 openUI											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../player meta/framework/#playSound">
+playSound											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4050,11 +4015,6 @@ Create											</a>
 											<span class="realm shared"></span>
 											<a href="../../tool meta/framework/#CreateConVars">
 CreateConVars											</a>
-										</li>
-										<li>
-											<span class="realm shared"></span>
-											<a href="../../tool meta/framework/#CustomLogic">
-CustomLogic											</a>
 										</li>
 										<li>
 											<span class="realm shared"></span>
@@ -4718,25 +4678,6 @@ tool.Mode = "builder"
 
 				<h3>Example Usage</h3>
 					<pre><code>tool:CreateConVars()
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="CustomLogic">
-					<h1><span class="realm shared"></span></span>ToolGunMeta:CustomLogic()</h1>
-				</a>
-
-					<p>Placeholder for handling tool-specific logic.
- This method is intended to be overridden to implement custom logic that should be executed periodically or under specific conditions.</p>
-			</header>
-
-
-
-				<h3>Example Usage</h3>
-					<pre><code>function ToolGunMeta:CustomLogic()
-    -- Custom periodic logic here
-end
 </code></pre>
 
 		</section>
