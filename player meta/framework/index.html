@@ -1127,12 +1127,12 @@ loadFromDir											</a>
 checkBadType											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../libraries/lia.net/#getNetVar">
 getNetVar											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../libraries/lia.net/#getNetVar">
 getNetVar											</a>
 										</li>
@@ -1492,29 +1492,6 @@ PlayerStaminaGained											</a>
 											<span class="realm server"></span>
 											<a href="../../hooks/attributes/#PlayerStaminaLost">
 PlayerStaminaLost											</a>
-										</li>
-
-									</ul>
-									</details>
-							</li>
-							<li>
-									<details >
-									<summary><a href="../../hooks/bodygrouper/">Bodygrouper</a></summary>
-
-									<ul>
-
-
-										<li>
-											<span class="realm shared
- This hook is triggered when a player is added to a bodygrouper closet."></span>
-											<a href="../../hooks/bodygrouper/#BodygrouperClosetAddUser">
-BodygrouperClosetAddUser											</a>
-										</li>
-										<li>
-											<span class="realm shared
- This hook is triggered when a player is removed from a bodygrouper closet."></span>
-											<a href="../../hooks/bodygrouper/#BodygrouperClosetRemoveUser">
-BodygrouperClosetRemoveUser											</a>
 										</li>
 
 									</ul>
@@ -2765,12 +2742,12 @@ checkDoorAccess											</a>
 getDoorOwner											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../entity meta/doors/#getDoorPartner">
 getDoorPartner											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../entity meta/doors/#getDoorPartner">
 getDoorPartner											</a>
 										</li>
@@ -2970,12 +2947,12 @@ getID											</a>
 getModel											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../item meta/framework/#getName">
 getName											</a>
 										</li>
@@ -3186,12 +3163,12 @@ Name											</a>
 binaryQuestion											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatError">
 chatError											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatError">
 chatError											</a>
 										</li>
@@ -3201,12 +3178,12 @@ chatError											</a>
 chatErrorLocalized											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#chatNotify">
 chatNotify											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#chatNotify">
 chatNotify											</a>
 										</li>
@@ -3271,12 +3248,12 @@ getItemWeapon											</a>
 getItems											</a>
 										</li>
 										<li>
-											<span class="realm server"></span>
+											<span class="realm client"></span>
 											<a href="../../player meta/framework/#getLiliaData">
 getLiliaData											</a>
 										</li>
 										<li>
-											<span class="realm client"></span>
+											<span class="realm server"></span>
 											<a href="../../player meta/framework/#getLiliaData">
 getLiliaData											</a>
 										</li>
@@ -4081,17 +4058,6 @@ Think											</a>
 							</li>
 							<li>
 									<details >
-									<summary><a href="../../configurations/bodygrouper/">Bodygrouper</a></summary>
-
-									<ul>
-
-
-
-									</ul>
-									</details>
-							</li>
-							<li>
-									<details >
 									<summary><a href="../../configurations/chatbox/">Chatbox</a></summary>
 
 									<ul>
@@ -4576,37 +4542,6 @@ end)
 		<section class="method">
 			<header>
 				<a class="anchor" id="chatError">
-					<h1><span class="realm client"></span></span>playerMeta:chatError(message)</h1>
-				</a>
-
-					<p>Displays an error notification in the chatbox.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">message</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> Text to display in the chat.</p>
-							</li>
-					</ul>
-
-
-				<h3>Example Usage</h3>
-					<pre><code>player:chatError("An error occurred.")
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="chatError">
 					<h1><span class="realm server"></span></span>playerMeta:chatError(message)</h1>
 				</a>
 
@@ -4632,6 +4567,37 @@ end)
 
 				<h3>Example Usage</h3>
 					<pre><code>player:chatError("An error occurred!")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="chatError">
+					<h1><span class="realm client"></span></span>playerMeta:chatError(message)</h1>
+				</a>
+
+					<p>Displays an error notification in the chatbox.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">message</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> Text to display in the chat.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:chatError("An error occurred.")
 </code></pre>
 
 		</section>
@@ -4681,37 +4647,6 @@ end)
 		<section class="method">
 			<header>
 				<a class="anchor" id="chatNotify">
-					<h1><span class="realm server"></span></span>playerMeta:chatNotify(message)</h1>
-				</a>
-
-					<p>Notifies the player with a message.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">message</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The message to notify the player.</p>
-							</li>
-					</ul>
-
-
-				<h3>Example Usage</h3>
-					<pre><code>player:chatNotify("Welcome to the server!")
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="chatNotify">
 					<h1><span class="realm client"></span></span>playerMeta:chatNotify(message)</h1>
 				</a>
 
@@ -4731,6 +4666,37 @@ end)
 
 
 								<p> Text to display in the notification.</p>
+							</li>
+					</ul>
+
+
+				<h3>Example Usage</h3>
+					<pre><code>player:chatNotify("Welcome to the server!")
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="chatNotify">
+					<h1><span class="realm server"></span></span>playerMeta:chatNotify(message)</h1>
+				</a>
+
+					<p>Notifies the player with a message.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">message</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The message to notify the player.</p>
 							</li>
 					</ul>
 
@@ -5258,61 +5224,6 @@ end
 		<section class="method">
 			<header>
 				<a class="anchor" id="getLiliaData">
-					<h1><span class="realm client"></span></span>playerMeta:getLiliaData(key, default)</h1>
-				</a>
-
-					<p>Retrieves a value from the local Lilia data.</p>
-			</header>
-
-
-					<h3>Parameters</h3>
-
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">key</span>
-
-									<span class="tag"><span class="type">String</span></span>
-
-
-								<p> The key for the data.</p>
-							</li>
-					</ul>
-
-					<ul>
-
-							<li>
-								<span class="tag parameter">default</span>
-
-									<span class="tag"><span class="type">any[opt=nil]</span></span>
-
-
-								<p> The default value to return if the key does not exist.</p>
-							</li>
-					</ul>
-
-
-				<h3>Returns</h3>
-				<ul>
-
-							<li>
-									<span class="type">any</span>
-
-								<p>The value corresponding to the key, or the default value if the key does not exist.</p>
-							</li>
-
-				</ul>
-
-				<h3>Example Usage</h3>
-					<pre><code>local rank = player:getLiliaData("rank", "Novice")
-print("Player Rank:", rank)
-</code></pre>
-
-		</section>
-		<section class="method">
-			<header>
-				<a class="anchor" id="getLiliaData">
 					<h1><span class="realm server"></span></span>playerMeta:getLiliaData(key, default)</h1>
 				</a>
 
@@ -5362,6 +5273,61 @@ print("Player Rank:", rank)
 				<h3>Example Usage</h3>
 					<pre><code>local level = player:getLiliaData("level", 1)
 print("Player Level:", level)
+</code></pre>
+
+		</section>
+		<section class="method">
+			<header>
+				<a class="anchor" id="getLiliaData">
+					<h1><span class="realm client"></span></span>playerMeta:getLiliaData(key, default)</h1>
+				</a>
+
+					<p>Retrieves a value from the local Lilia data.</p>
+			</header>
+
+
+					<h3>Parameters</h3>
+
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">key</span>
+
+									<span class="tag"><span class="type">String</span></span>
+
+
+								<p> The key for the data.</p>
+							</li>
+					</ul>
+
+					<ul>
+
+							<li>
+								<span class="tag parameter">default</span>
+
+									<span class="tag"><span class="type">any[opt=nil]</span></span>
+
+
+								<p> The default value to return if the key does not exist.</p>
+							</li>
+					</ul>
+
+
+				<h3>Returns</h3>
+				<ul>
+
+							<li>
+									<span class="type">any</span>
+
+								<p>The value corresponding to the key, or the default value if the key does not exist.</p>
+							</li>
+
+				</ul>
+
+				<h3>Example Usage</h3>
+					<pre><code>local rank = player:getLiliaData("rank", "Novice")
+print("Player Rank:", rank)
 </code></pre>
 
 		</section>
